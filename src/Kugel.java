@@ -1,4 +1,3 @@
-package com.denisilyes;
 import java.util.Random;
 
 public class Kugel{
