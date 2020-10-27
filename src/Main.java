@@ -1,4 +1,4 @@
-package com.denisilyes;
+
 
 public class Main {
 
