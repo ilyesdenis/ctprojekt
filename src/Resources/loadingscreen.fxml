@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Grafik">
+<AnchorPane fx:id="ap" onMouseClicked="#onMauseClicked" prefHeight="670.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Grafik">
    <children>
-      <ProgressBar fx:id="pb" layoutX="121.0" layoutY="274.0" prefHeight="14.0" prefWidth="358.0" />
-      <ImageView fitHeight="193.0" fitWidth="316.0" layoutX="142.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+      <ProgressBar fx:id="pb" layoutX="259.0" layoutY="355.0" prefHeight="22.0" prefWidth="512.0" progress="0.0" />
+      <ImageView fitHeight="307.0" fitWidth="586.0" layoutX="259.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/s-l300.jpg" />
          </image>
       </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="406.0" layoutY="395.0" prefHeight="72.0" prefWidth="218.0" text="click anywhere to START" textAlignment="CENTER" textFill="#000000a8">
+         <font>
+            <Font name="Comic Sans MS" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
