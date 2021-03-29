@@ -5,12 +5,17 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    Stage primaryStage;
 
     public static void main(String[] args) throws Exception {
-	Grafik grafik=new Grafik();
+	LoadingscreenController loadingscreenController =new LoadingscreenController();
        // grafik.initialise(); Experimental!!Experimental!!Experimental!!Experimental!!Experimental!!Experimental!!Experimental!
     Application.launch();
     }
+
+
+
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/Resources/loadingscreen.fxml"));
