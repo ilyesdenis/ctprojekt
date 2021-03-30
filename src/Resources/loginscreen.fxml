@@ -1,27 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="215.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginscreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginscreenController">
    <children>
-      <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="44.0" prefHeight="31.0" prefWidth="86.0" text="Username:" textAlignment="RIGHT">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="76.0" prefHeight="31.0" prefWidth="86.0" text="Password:" textAlignment="RIGHT">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <TextField layoutX="119.0" layoutY="46.0" prefHeight="26.0" prefWidth="194.0" />
-      <TextField layoutX="119.0" layoutY="78.0" prefHeight="26.0" prefWidth="194.0" />
-      <Button layoutX="226.0" layoutY="160.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="86.0" text="Login" />
-      <Button layoutX="129.0" layoutY="160.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="86.0" text="Register" />
+      <SplitPane dividerPositions="0.5" prefHeight="500.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Pane layoutX="40.0" layoutY="159.0" prefHeight="498.0" prefWidth="296.0" style="-fx-background-color: #0f4336;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+
+                     </children></Pane>
+                  <Text fill="#fc0000" layoutX="50.0" layoutY="121.0" stroke="#00fa3f" strokeWidth="0.0" text="Roulette">
+                     <font>
+                        <Font name="Serif Regular" size="59.0" />
+                     </font>
+                     <effect>
+                        <Lighting bumpInput="$null">
+                           <light>
+                              <Light.Distant color="RED" />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Text>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <GridPane prefHeight="498.0" prefWidth="296.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="61.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="172.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="63.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="nameField1" layoutX="108.0" layoutY="95.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <PasswordField fx:id="passwordField1" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Button fx:id="signup1" mnemonicParsing="false" text="Regestrieren" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Passwort" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Passwort" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="signup" layoutX="108.0" layoutY="439.0" mnemonicParsing="false" onAction="#anmelden" text="Anmelden" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>

@@ -31,7 +31,7 @@ import javafx.util.Duration;
 
 
 public class LoadingscreenController implements Initializable{
-    private static final Integer STARTTIME = 150;
+    private static final Integer STARTTIME = 15;
     private IntegerProperty timeSeconds =
             new SimpleIntegerProperty(STARTTIME*100);
     private Timeline timeline;
