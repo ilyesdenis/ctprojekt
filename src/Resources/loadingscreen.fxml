@@ -7,15 +7,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ap" onMouseClicked="#onMauseClicked" prefHeight="670.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoadingscreenController">
+<AnchorPane fx:id="ap" onMouseClicked="#onMauseClicked" prefHeight="670.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoadingscreenController">
    <children>
-      <ProgressBar fx:id="pb" layoutX="259.0" layoutY="355.0" prefHeight="22.0" prefWidth="512.0" progress="0.0" />
-      <ImageView fitHeight="307.0" fitWidth="586.0" layoutX="259.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="670.0" fitWidth="462.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/s-l300.jpg" />
+            <Image url="@../img/roulette_login.jpg" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="406.0" layoutY="395.0" prefHeight="72.0" prefWidth="218.0" text="click anywhere to START" textAlignment="CENTER" textFill="#000000a8">
+      <ProgressBar fx:id="pb" layoutY="438.0" prefHeight="22.0" prefWidth="462.0" progress="0.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="548.0" prefHeight="58.0" prefWidth="202.0" text="click anywhere to START" textAlignment="CENTER" textFill="#000000a8">
          <font>
             <Font name="Comic Sans MS" size="16.0" />
          </font>
