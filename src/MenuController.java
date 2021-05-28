@@ -15,29 +15,70 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.w3c.dom.css.CSS2Properties;
+import javafx.scene.paint.Color;
 
 
 public class MenuController {
     public javafx.scene.shape.Rectangle play;
+    public javafx.scene.shape.Rectangle options;
+    public javafx.scene.shape.Rectangle exit;
+    public javafx.scene.shape.Polygon pfeilrechts;
+    public javafx.scene.shape.Polygon pfeillinks;
+    public javafx.scene.text.Text playerZahl;
+
+    public int playerAnzahl = 1;
+    public String a = "penis";
 
     public void startknopf(MouseEvent mouseEvent) throws Exception{
-        System.out.println("du hurensohn");
+
 
     }
 
     @FXML
     public void mausbewegtPlay(MouseEvent mouseEvent) throws Exception{
-        System.out.println("Penis");
-        play.setStrokeWidth(2000);
-        
-
-
-
+        play.setStroke(Color.YELLOW);
     }
-
     public void mausbewegtOptions(MouseEvent mouseEvent) {
+        options.setStroke(Color.YELLOW);
+    }
+    public void mausbewegtExit(MouseEvent mouseEvent) {
+        exit.setStroke(Color.YELLOW);
+    }
+    public void mausrausOptions(MouseEvent mouseEvent) {
+    options.setStroke(Color.BLACK);
+    }
+    public void mausrausExit(MouseEvent mouseEvent) {
+        exit.setStroke(Color.BLACK);
+    }
+    public void mausrausPlay(MouseEvent mouseEvent) {
+        play.setStroke(Color.BLACK);
+    }
+    public void pfeilrechtsBewegt(MouseEvent mouseEvent) {
+        pfeilrechts.setStroke(Color.YELLOW);
+    }
+    public void pfleillinksBewegt(MouseEvent mouseEvent) {
+        pfeillinks.setStroke(Color.YELLOW);
+    }
+    public void pfeilrechtsRaus(MouseEvent mouseEvent) {
+        pfeilrechts.setStroke(Color.BLACK);
+    }
+    public void pfeillinksRaus(MouseEvent mouseEvent) {
+        pfeillinks.setStroke(Color.BLACK);
     }
 
-    public void mausbewegtExit(MouseEvent mouseEvent) {
+    public void pfeilrechtsPressed(MouseEvent mouseEvent) {
+        if (playerAnzahl < 4) {
+            playerAnzahl++;
+            String a = String.valueOf(playerAnzahl);
+            playerZahl.setText(a);
+        }
+    }
+
+    public void pfeillinksPressed(MouseEvent mouseEvent) {
+        if (playerAnzahl > 1){
+            playerAnzahl--;
+            String a = String.valueOf(playerAnzahl);
+            playerZahl.setText(a);
+        }
     }
 }
