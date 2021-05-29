@@ -30,8 +30,11 @@ public class MenuController {
     public String a = "penis";
 
     public void startknopf(MouseEvent mouseEvent) throws Exception{
-
-
+        Pane root = FXMLLoader.load(getClass().getResource("/Resources/roulettefeld.fxml"));
+        Stage stage = (Stage) play.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("The Game");
     }
 
     @FXML

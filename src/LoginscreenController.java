@@ -54,4 +54,7 @@ public class LoginscreenController {
 
     public void showLIne(MouseEvent mouseEvent) {
     }
+
+    public void register(ActionEvent actionEvent) {
+    }
 }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RoulettefeldController">
+   <children>
+      <ImageView fitHeight="244.0" fitWidth="900.0" layoutY="256.0">
+         <image>
+            <Image url="@../img/roulettefeld.png" />
+         </image>
+      </ImageView>
+      <MediaView fx:id="mediaView" fitHeight="150.0" fitWidth="300.0" layoutX="-1.0" layoutY="-2.0" />
+      <Rectangle fx:id="zero" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="138.0" layoutX="38.0" layoutY="276.0" onMouseClicked="#zero" stroke="TRANSPARENT" strokeType="INSIDE" width="47.0" />
+      <Rectangle fx:id="three" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="93.0" layoutY="271.0" onMouseClicked="#three" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="two" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="93.0" layoutY="320.0" onMouseClicked="#two" stroke="TRANSPARENT" strokeType="INSIDE" width="54.0" />
+      <Rectangle fx:id="one" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="93.0" layoutY="370.0" onMouseClicked="#one" stroke="TRANSPARENT" strokeType="INSIDE" width="54.0" />
+      <Rectangle fx:id="six" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="51.0" layoutX="154.0" layoutY="267.0" onMouseClicked="#six" stroke="TRANSPARENT" strokeType="INSIDE" width="54.0" />
+      <Rectangle fx:id="five" arcHeight="5.0" arcWidth="5.0" fill="#ff212100" height="44.0" layoutX="154.0" layoutY="320.0" onMouseClicked="#five" stroke="TRANSPARENT" strokeType="INSIDE" width="54.0" />
+      <Rectangle fx:id="four" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="154.0" layoutY="370.0" onMouseClicked="#four" stroke="TRANSPARENT" strokeType="INSIDE" width="54.0" />
+      <Rectangle fx:id="nine" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="51.0" layoutX="214.0" layoutY="267.0" onMouseClicked="#nine" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="eight" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="51.0" layoutX="214.0" layoutY="316.0" onMouseClicked="#eight" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="seven" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="217.0" layoutY="370.0" onMouseClicked="#seven" stroke="TRANSPARENT" strokeType="INSIDE" width="54.0" />
+      <Rectangle fx:id="twelve" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="47.0" layoutX="281.0" layoutY="270.0" onMouseClicked="#twelve" stroke="TRANSPARENT" strokeType="INSIDE" width="53.0" />
+      <Rectangle fx:id="eleven" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="281.0" layoutY="319.0" onMouseClicked="#eleven" stroke="TRANSPARENT" strokeType="INSIDE" width="52.0" />
+      <Rectangle fx:id="ten" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="47.0" layoutX="281.0" layoutY="364.0" onMouseClicked="#ten" stroke="TRANSPARENT" strokeType="INSIDE" width="53.0" />
+      <Rectangle fx:id="firsttwelve" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="93.0" layoutY="414.0" onMouseClicked="#firsttwelve" stroke="TRANSPARENT" strokeType="INSIDE" width="241.0" />
+      <Rectangle fx:id="onetoeighteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="93.0" layoutY="454.0" onMouseClicked="#onetoeighteen" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
+      <Rectangle fx:id="even" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="213.0" layoutY="451.0" onMouseClicked="#even" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
+      <ListView layoutX="315.0" layoutY="11.0" prefHeight="239.0" prefWidth="210.0" />
+      <Text fx:id="spindisplay" layoutX="37.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPIN IT!" wrappingWidth="235.666763305664">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Text>
+      <Button layoutX="613.0" layoutY="41.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="215.0" text="SPIN" />
+      <Rectangle fx:id="fifteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="338.0" layoutY="267.0" onMouseClicked="#fifteen" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="fourteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="340.0" layoutY="319.0" onMouseClicked="#fourteen" stroke="TRANSPARENT" strokeType="INSIDE" width="53.0" />
+      <Rectangle fx:id="thirteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="338.0" layoutY="367.0" onMouseClicked="#thirteen" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
+      <Rectangle fx:id="secoundtwelve" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="338.0" layoutY="414.0" onMouseClicked="#secoundtwelve" stroke="TRANSPARENT" strokeType="INSIDE" width="241.0" />
+      <Rectangle fx:id="thirdtwelve" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="588.0" layoutY="415.0" onMouseClicked="#thirdtwelve" stroke="TRANSPARENT" strokeType="INSIDE" width="241.0" />
+      <Rectangle fx:id="red" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="341.0" layoutY="451.0" onMouseClicked="#red" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
+      <Rectangle fx:id="black" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="453.0" layoutY="455.0" onMouseClicked="#black" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
+      <Rectangle fx:id="odd" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="581.0" layoutY="452.0" onMouseClicked="#odd" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
+      <Rectangle fx:id="nineteentothirtysix" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="714.0" layoutY="453.0" onMouseClicked="#nineteentothirtysix" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
+      <Rectangle fx:id="eighteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="395.0" layoutY="270.0" onMouseClicked="#eighteen" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="seventeen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="398.0" layoutY="316.0" onMouseClicked="#seventeen" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="sixteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="396.0" layoutY="365.0" onMouseClicked="#sixteen" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="twentyfour" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="522.0" layoutY="273.0" onMouseClicked="#twentyfour" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="twentythree" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="522.0" layoutY="319.0" onMouseClicked="#twentythree" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="twentytwo" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="522.0" layoutY="366.0" onMouseClicked="#twentytwo" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="twentyseven" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="584.0" layoutY="274.0" onMouseClicked="#twentyseven" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="twentysix" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="583.0" layoutY="319.0" onMouseClicked="#twentysix" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="twentyfive" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="583.0" layoutY="371.0" onMouseClicked="#twentyfive" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="thirty" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="644.0" layoutY="273.0" onMouseClicked="#thirty" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="twentynine" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="644.0" layoutY="315.0" onMouseClicked="#twentynine" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="twetnyeight" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="646.0" layoutY="363.0" onMouseClicked="#twetnyeight" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="thirtythree" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="707.0" layoutY="270.0" onMouseClicked="#thirtythree" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="thirtytwo" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="705.0" layoutY="319.0" onMouseClicked="#thirtytwo" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="thirtyone" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="707.0" layoutY="362.0" onMouseClicked="#thirtyone" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="thirtysix" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="765.0" layoutY="276.0" onMouseClicked="#thirtysix" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="thirtyfive" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="765.0" layoutY="319.0" onMouseClicked="#thirtyfive" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="thirtyfour" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="766.0" layoutY="370.0" onMouseClicked="#thirtyfour" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="row3" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="832.0" layoutY="274.0" onMouseClicked="#row3" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="row2" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="828.0" layoutY="324.0" onMouseClicked="#row2" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="row1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="831.0" layoutY="369.0" onMouseClicked="#row1" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="twentyone" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="461.0" layoutY="276.0" onMouseClicked="#twentyone" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="twenty" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="462.0" layoutY="316.0" onMouseClicked="#twenty" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <Rectangle fx:id="nineteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="462.0" layoutY="368.0" onMouseClicked="#nineteen" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+   </children>
+</AnchorPane>
