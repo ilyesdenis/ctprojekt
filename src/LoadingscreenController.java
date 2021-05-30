@@ -31,13 +31,15 @@ import javafx.util.Duration;
 
 
 public class LoadingscreenController implements Initializable{
-    private static final Integer STARTTIME = 15;
-    private IntegerProperty timeSeconds =
-            new SimpleIntegerProperty(STARTTIME*100);
-    private Timeline timeline;
 
+
+    private static final Integer STARTTIME = 15;
+    private IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME*100);
+    private Timeline timeline = new Timeline();;
     boolean clickedtoStart=false;
+
     @FXML public ProgressBar pb;
+
     @FXML
     public void startloginStage() throws Exception{
         Pane root = FXMLLoader.load(getClass().getResource("/Resources/loginscreen.fxml"));
@@ -54,10 +56,8 @@ public class LoadingscreenController implements Initializable{
             timeline.stop();
         }
         timeSeconds.set((STARTTIME + 1) * 100);
-        timeline = new Timeline();
-        timeline.getKeyFrames().add(
 
-                new KeyFrame(Duration.seconds(STARTTIME + 1), new KeyValue(timeSeconds, 0)));
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(STARTTIME + 1), new KeyValue(timeSeconds, 0)));
         timeline.playFromStart();
         startloginStage();
 

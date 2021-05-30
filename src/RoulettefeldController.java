@@ -1,3 +1,4 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
@@ -7,13 +8,16 @@ import javafx.scene.media.MediaView;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
+import java.awt.*;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import java.util.Random;
 
 
 public class RoulettefeldController implements Initializable {
+
+    Random rand = new Random();
 
     @FXML
     private MediaView mediaView;
@@ -21,10 +25,21 @@ public class RoulettefeldController implements Initializable {
     private Media media;
     private MediaPlayer mediaPlayer;
     public Text spindisplay;
+    public Text textKugel;
     //Buttons
     public Rectangle zero,three,two,one,six,five,four,nine,eight,seven,twelve,eleven,firsttwelve,ten,onetoeighteen,even, twentyone,twenty,row1,row2,row3,thirtyfour,thirtyfive,thirtysix,thirtyone;
     public Rectangle thirtytwo,thirtythree,twetnyeight,twentynine,thirty,twentyfive,twentysix,twentyseven,nineteen,twentytwo,twentythree,twentyfour,sixteen,seventeen,eighteen,nineteentothirtysix;
     public Rectangle odd,black,red,thirteen,thirdtwelve,secoundtwelve,fourteen,fifteen;
+    int kugelpos;
+
+// winning Number displayed
+
+    @FXML
+    void DisplayNumber(ActionEvent event) {
+        kugelpos = rand.nextInt(37);
+        System.out.println(kugelpos);
+        textKugel.setText("Winning Number: "+String.valueOf(kugelpos));
+    }
 
 
     @Override
@@ -34,16 +49,16 @@ public class RoulettefeldController implements Initializable {
         media=new Media(file.toURI().toString());
         mediaPlayer=new MediaPlayer(media);
         mediaView.setMediaPlayer(mediaPlayer);
-        spin();//EXPERIMENTAL SHIT
+        //spin();//EXPERIMENTAL SHIT
 
     }
 
 
 
-    public void spin(){
-        mediaPlayer.play();
-        spindisplay.setText("ASD");
-    }
+    //public void spin(){
+     //   mediaPlayer.play();
+      //  spindisplay.setText("ASD");
+ //   }
 
 //Buttons
     public void zero(MouseEvent mouseEvent) {
@@ -126,6 +141,7 @@ public class RoulettefeldController implements Initializable {
     }
 
     public void red(MouseEvent mouseEvent) {
+
     }
 
     public void black(MouseEvent mouseEvent) {

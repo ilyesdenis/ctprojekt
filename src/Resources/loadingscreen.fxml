@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="ap" onMouseClicked="#onMauseClicked" prefHeight="670.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoadingscreenController">
    <children>
@@ -14,7 +12,7 @@
             <Image url="@../img/roulette_login.jpg" />
          </image>
       </ImageView>
-      <ProgressBar fx:id="pb" layoutY="438.0" prefHeight="22.0" prefWidth="462.0" progress="0.0" />
+      <ProgressBar fx:id="pb" layoutX="35.0" layoutY="461.0" prefHeight="17.0" prefWidth="391.0" progress="0.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="548.0" prefHeight="58.0" prefWidth="202.0" text="click anywhere to START" textAlignment="CENTER" textFill="#000000a8">
          <font>
             <Font name="Comic Sans MS" size="16.0" />

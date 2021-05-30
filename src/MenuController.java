@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,8 +18,10 @@ import javafx.stage.Stage;
 import org.w3c.dom.css.CSS2Properties;
 import javafx.scene.paint.Color;
 
+import static javafx.fxml.FXMLLoader.load;
 
-public class MenuController {
+
+public class MenuController  {
     public javafx.scene.shape.Rectangle play;
     public javafx.scene.shape.Rectangle options;
     public javafx.scene.shape.Rectangle exit;
@@ -29,8 +32,11 @@ public class MenuController {
     public int playerAnzahl = 1;
     public String a = "penis";
 
+
+    // Aufruf roulette feld
+    @FXML
     public void startknopf(MouseEvent mouseEvent) throws Exception{
-        Pane root = FXMLLoader.load(getClass().getResource("/Resources/roulettefeld.fxml"));
+        Pane root = load(getClass().getResource("/Resources/roulettefeld.fxml"));
         Stage stage = (Stage) play.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -38,7 +44,7 @@ public class MenuController {
     }
 
     @FXML
-    public void mausbewegtPlay(MouseEvent mouseEvent) throws Exception{
+    public void mausbewegtPlay(MouseEvent mouseEvent) {
         play.setStroke(Color.YELLOW);
     }
     public void mausbewegtOptions(MouseEvent mouseEvent) {
@@ -84,4 +90,6 @@ public class MenuController {
             playerZahl.setText(a);
         }
     }
+
+
 }
