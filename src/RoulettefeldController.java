@@ -20,6 +20,7 @@ public class RoulettefeldController implements Initializable {
     Random rand = new Random();
 
     @FXML
+
     private MediaView mediaView;
     private File file;
     private Media media;
@@ -30,15 +31,16 @@ public class RoulettefeldController implements Initializable {
     public Rectangle zero,three,two,one,six,five,four,nine,eight,seven,twelve,eleven,firsttwelve,ten,onetoeighteen,even, twentyone,twenty,row1,row2,row3,thirtyfour,thirtyfive,thirtysix,thirtyone;
     public Rectangle thirtytwo,thirtythree,twetnyeight,twentynine,thirty,twentyfive,twentysix,twentyseven,nineteen,twentytwo,twentythree,twentyfour,sixteen,seventeen,eighteen,nineteentothirtysix;
     public Rectangle odd,black,red,thirteen,thirdtwelve,secoundtwelve,fourteen,fifteen;
-    int kugelpos;
+    int kugelpos,spin=0;
 
 // winning Number displayed
 
     @FXML
     void DisplayNumber(ActionEvent event) {
+        spin++;
         kugelpos = rand.nextInt(37);
         System.out.println(kugelpos);
-        textKugel.setText("Winning Number: "+String.valueOf(kugelpos));
+        textKugel.setText("Winning Number: "+String.valueOf(kugelpos) + "/n amount of spins" + String.valueOf(spin));
     }
 
 
