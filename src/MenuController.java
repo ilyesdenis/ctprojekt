@@ -33,15 +33,10 @@ public class MenuController  {
     public String a = "penis";
 
 
-    // Aufruf roulette feld
-    @FXML
-    public void startknopf(MouseEvent mouseEvent) throws Exception{
-        Pane root = load(getClass().getResource("/Resources/roulettefeld.fxml"));
-        Stage stage = (Stage) play.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("The Game");
-    }
+
+
+
+
 
     @FXML
     public void mausbewegtPlay(MouseEvent mouseEvent) {
@@ -91,5 +86,23 @@ public class MenuController  {
         }
     }
 
+
+    public void ExitPressed(MouseEvent mouseEvent) throws IOException {
+
+        Pane root = load(getClass().getResource("/Resources/loginscreen.fxml"));
+        Stage stage = (Stage) exit.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+
+    }
+    // Aufruf roulette feld
+
+    public void Play (MouseEvent mouseEvent) throws Exception{
+        Pane root = load(getClass().getResource("/Resources/roulettefeld.fxml"));
+        Stage stage = (Stage) play.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("The Game");
+    }
 
 }
