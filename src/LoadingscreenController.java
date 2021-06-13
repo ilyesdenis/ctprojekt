@@ -38,7 +38,7 @@ public class LoadingscreenController implements Initializable{
     private Timeline timeline = new Timeline();;
     boolean clickedtoStart=false;
 
-    @FXML public ProgressBar pb;
+    @FXML public ProgressBar pb= new ProgressBar();
 
     @FXML
     public void startloginStage() throws Exception{
@@ -49,9 +49,11 @@ public class LoadingscreenController implements Initializable{
         stage.setTitle("Login");
     }
 
+
+
     @FXML
     public void onMauseClicked(MouseEvent mouseEvent) throws Exception {
-        if (timeline != null) //TODO figure out why this very sophisticated timer don`t work
+       /* if (timeline != null) //TODO figure out why this very sophisticated timer don`t work
         {
             timeline.stop();
         }
@@ -59,6 +61,9 @@ public class LoadingscreenController implements Initializable{
 
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(STARTTIME + 1), new KeyValue(timeSeconds, 0)));
         timeline.playFromStart();
+
+        */
+
         startloginStage();
 
     }
@@ -66,7 +71,7 @@ public class LoadingscreenController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        pb.progressProperty().bind(timeSeconds.divide(STARTTIME * 100.0).subtract(1).multiply(-1));
+        //pb.progressProperty().bind(timeSeconds.divide(STARTTIME * 100.0).subtract(1).multiply(-1));
     }
 
 
