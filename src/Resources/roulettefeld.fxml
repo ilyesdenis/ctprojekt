@@ -2,23 +2,23 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RoulettefeldController">
+<AnchorPane fx:id="winNumb" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RoulettefeldController">
    <children>
-      <ImageView fitHeight="244.0" fitWidth="900.0" layoutY="256.0">
+      <ImageView fitHeight="244.0" fitWidth="900.0" layoutY="269.0">
          <image>
             <Image url="@../img/roulettefeld.png" />
          </image>
       </ImageView>
-      <MediaView fx:id="mediaView" fitHeight="150.0" fitWidth="300.0" layoutX="-1.0" layoutY="-2.0" />
+      <MediaView fx:id="mediaView" fitHeight="150.0" fitWidth="215.0" layoutX="660.0" layoutY="19.0" />
       <Rectangle fx:id="zero" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="138.0" layoutX="38.0" layoutY="276.0" onMouseClicked="#zero" stroke="TRANSPARENT" strokeType="INSIDE" width="47.0" />
       <Rectangle fx:id="three" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="93.0" layoutY="271.0" onMouseClicked="#three" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
       <Rectangle fx:id="two" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="93.0" layoutY="320.0" onMouseClicked="#two" stroke="TRANSPARENT" strokeType="INSIDE" width="54.0" />
@@ -35,13 +35,7 @@
       <Rectangle fx:id="firsttwelve" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="93.0" layoutY="414.0" onMouseClicked="#firsttwelve" stroke="TRANSPARENT" strokeType="INSIDE" width="241.0" />
       <Rectangle fx:id="onetoeighteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="93.0" layoutY="454.0" onMouseClicked="#onetoeighteen" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
       <Rectangle fx:id="even" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="213.0" layoutY="451.0" onMouseClicked="#even" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
-      <ListView layoutX="315.0" layoutY="11.0" prefHeight="239.0" prefWidth="210.0" />
-      <Text fx:id="spindisplay" layoutX="37.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPIN IT!" wrappingWidth="235.666763305664">
-         <font>
-            <Font size="64.0" />
-         </font>
-      </Text>
-      <Button fx:id="BtSpin" layoutX="613.0" layoutY="41.0" mnemonicParsing="false" onAction="#DisplayNumber" prefHeight="26.0" prefWidth="215.0" text="SPIN" />
+      <Button fx:id="BtSpin" layoutX="658.0" layoutY="157.0" mnemonicParsing="false" onAction="#DisplayNumber" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #d2eb34;" text="SPIN" />
       <Rectangle fx:id="fifteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="338.0" layoutY="267.0" onMouseClicked="#fifteen" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
       <Rectangle fx:id="fourteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="340.0" layoutY="319.0" onMouseClicked="#fourteen" stroke="TRANSPARENT" strokeType="INSIDE" width="53.0" />
       <Rectangle fx:id="thirteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="338.0" layoutY="367.0" onMouseClicked="#thirteen" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
@@ -75,7 +69,79 @@
       <Rectangle fx:id="twentyone" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="461.0" layoutY="276.0" onMouseClicked="#twentyone" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
       <Rectangle fx:id="twenty" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="462.0" layoutY="316.0" onMouseClicked="#twenty" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
       <Rectangle fx:id="nineteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="462.0" layoutY="368.0" onMouseClicked="#nineteen" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Label fx:id="Lbkugel" layoutX="629.0" layoutY="85.0" prefHeight="18.0" prefWidth="195.0" />
-      <Text fx:id="textKugel" layoutX="703.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Label fx:id="Lbkugel" layoutX="278.0" layoutY="187.0" prefHeight="18.0" prefWidth="195.0" />
+      <Text fx:id="textKugel" layoutX="324.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="102.0" />
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="220.0" onMouseClicked="#bettingAmount1" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chip1.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="69.0" layoutY="218.0" onMouseClicked="#bettingAmount2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chip2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="131.0" layoutY="223.0" onMouseClicked="#bettingAmount5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chip5.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="194.0" layoutY="219.0" onMouseClicked="#bettingAmount10" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chip10.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="274.0" layoutY="219.0" onMouseClicked="#bettingAmount20" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chip20.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="343.0" layoutY="218.0" onMouseClicked="#bettingAmount25" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chip25.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="218.0" onMouseClicked="#bettingAmount50" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chip50.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="487.0" layoutY="218.0" onMouseClicked="#bettingAmount100" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chip100.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="49.0" fitWidth="47.0" layoutX="565.0" layoutY="219.0" onMouseClicked="#bettingAmount250" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chip250.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="53.0" layoutX="640.0" layoutY="218.0" onMouseClicked="#bettingAmount500" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chip500.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="713.0" layoutY="218.0" onMouseClicked="#bettingAmount1000" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chip1000.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="782.0" layoutY="220.0" onMouseClicked="#bettingAmount2000" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chip2000.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="850.0" layoutY="221.0" onMouseClicked="#bettingAmount5000" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chip5000.jpg" />
+         </image>
+      </ImageView>
+      <TextArea layoutX="17.0" layoutY="41.0" prefHeight="173.0" prefWidth="200.0" />
+      <Circle fx:id="DisplayWinningNumber" fill="DODGERBLUE" layoutX="528.0" layoutY="60.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label alignment="TOP_LEFT" layoutX="382.0" layoutY="52.0" prefHeight="17.0" prefWidth="118.0" style="-fx-background-color: #2cab27;" text="   Winning Number:" textAlignment="CENTER" />
+      <Label fx:id="LbWinNumCircle" layoutX="525.0" layoutY="52.0" textAlignment="CENTER" />
+      <Label fx:id="LbBettingAmount" layoutX="423.0" layoutY="86.0" />
+      <Button layoutX="773.0" layoutY="157.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="105.0" text="Start next round" />
+      <Label fx:id="LbPayout" layoutX="409.0" layoutY="128.0" text="Label" />
    </children>
 </AnchorPane>

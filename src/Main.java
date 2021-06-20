@@ -7,6 +7,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
     Stage primaryStage;
 
+    // start of programm
+
     public static void main(String[] args) throws Exception {
 	LoadingscreenController loadingscreenController =new LoadingscreenController();
        // grafik.initialise(); Experimental!!Experimental!!Experimental!!Experimental!!Experimental!!Experimental!!Experimental!

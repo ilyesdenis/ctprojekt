@@ -17,6 +17,10 @@ public class Calc {
         return kugelpos;
     }
 
+
+
+
+
     public int calculateWin(int[] bets) {
         this.bets = bets;
         int win = 0;
