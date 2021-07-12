@@ -1,7 +1,9 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -12,6 +14,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -22,6 +25,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -49,6 +53,8 @@ public class RoulettefeldController implements Initializable {
     private Label LbPayout;
     @FXML
     private Button BtSpin;
+    @FXML
+    private Button menu;
     @FXML
     private Button BtStartNextRound;
     @FXML
@@ -143,7 +149,7 @@ public class RoulettefeldController implements Initializable {
         mediaView.setMediaPlayer(mediaPlayer);
 
         for(int i = 0; i < 50; i++){
-            for (int j=0;j<50;j++) {
+            for (int j=0;j<50;j++) {//this is why
                 ivs.put(j+"chipone" + i, new ImageView(new Image("file:./src/img/chip1.png", 50, 50, true, true)));
                 ivs.put(j + "chiptwo" + i, new ImageView(new Image("file:./src/img/chip2.png", 50, 50, true, true)));
                 ivs.put(j + "chipfive" + i, new ImageView(new Image("file:./src/img/chip5.png", 50, 50, true, true)));
@@ -637,5 +643,13 @@ public class RoulettefeldController implements Initializable {
                 calledby.setBottomAnchor(ivs.get(fieldid+"chipfivethausend"+chipsonfield),(double)chipsonfield);
                 break;
         }
+    }
+
+    public void backtomenu(MouseEvent mouseEvent) throws Exception {
+        Pane root = FXMLLoader.load(getClass().getResource("/Resources/menu.fxml"));
+        Stage stage = (Stage) menu.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Menu");
     }
 }//eoc

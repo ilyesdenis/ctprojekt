@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="ap" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RoulettefeldController">
@@ -144,12 +145,26 @@
             <Insets />
          </opaqueInsets>
       </HBox>
-      <Circle fx:id="DisplayWinningNumber" fill="DODGERBLUE" layoutX="528.0" layoutY="60.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label alignment="TOP_LEFT" layoutX="382.0" layoutY="52.0" prefHeight="17.0" prefWidth="118.0" style="-fx-background-color: #2cab27;" text="   Winning Number:" textAlignment="CENTER" />
-      <Label fx:id="LbWinNumCircle" layoutX="525.0" layoutY="52.0" textAlignment="CENTER" />
+      <Circle fx:id="DisplayWinningNumber" fill="#ffffff00" layoutX="517.0" layoutY="123.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label alignment="CENTER" layoutX="331.0" layoutY="107.0" prefHeight="32.0" prefWidth="133.0" style="-fx-background-color: #2cab27;" text="   Winning Number:" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="LbWinNumCircle" alignment="CENTER" layoutX="499.0" layoutY="109.0" prefHeight="27.0" prefWidth="36.0" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
       <Label fx:id="LbBettingAmount" layoutX="423.0" layoutY="86.0" />
-      <Button layoutX="773.0" layoutY="157.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="105.0" text="Start next round" />
-      <Label fx:id="LbPayout" layoutX="409.0" layoutY="128.0" text="Label" />
-      <ListView fx:id="lw" layoutX="3.0" layoutY="5.0" prefHeight="212.0" prefWidth="184.0" />
+      <Button fx:id="menu" layoutX="773.0" layoutY="157.0" mnemonicParsing="false" onMouseClicked="#backtomenu" prefHeight="7.0" prefWidth="105.0" text="MENU" />
+      <Label fx:id="LbPayout" layoutX="392.0" layoutY="160.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <ListView fx:id="lw" layoutX="3.0" layoutY="67.0" prefHeight="150.0" prefWidth="184.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="44.0" layoutY="8.0" prefHeight="58.0" prefWidth="102.0" text="Bets:">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
