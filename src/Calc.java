@@ -1,7 +1,7 @@
 import java.util.Random;
 /*  bet IDs:
-* 0-36-the numbersx, 37-firsttwelvex, 38-onetoeighteenx, 39-evenx, 40-secoundtwelvex,41-thirdtwelvex
-* 42-redx, 43-blackx, 44-oddx, 45-nineteentothirtysixx, 47-row2x, 48-row3x, 49-row1x
+* 0-36-the numbers, 37-firsttwelve, 38-onetoeighteen, 39-even, 40-secoundtwelve,41-thirdtwelve
+* 42-red, 43-black, 44-odd, 45-nineteentothirtysix, 47-row2, 48-row3, 49-row1
 *
 *
 * */
@@ -13,7 +13,7 @@ public class Calc {
     private int kugelpos;
 
     public int spinit() {
-        kugelpos = rand.nextInt(37);
+        kugelpos = rand.nextInt(37); //generates a random number between 0 and 37
         return kugelpos;
     }
 
@@ -89,23 +89,22 @@ public class Calc {
                 }
                 if (i == 49) { //49 row1
                     if (kugelpos % 3 == 1) {
-                        win = win + 3 * bets[49]; //row1 win, factor x3
+                        win = win + 3 * bets[49]; //row2 win, factor x3
                     }
                 }
                 if (i == 47) { //47 row2
                     if (kugelpos % 3 == 2) {
-                        win = win + 3 * bets[47]; //row2 win, factor x3
+                        win = win + 3 * bets[47]; //row3 win, factor x3
                     }
                 }
                 if (i == 48) { //49 row1
                     if (kugelpos % 3 == 0) {
-                        win = win + 3 * bets[48]; //row3 win, factor x3
+                        win = win + 3 * bets[48]; //row1 win, factor x3
                     }
                 }
             }
         }
         System.out.println("win:"+win);
         return win;
-
     }
 }

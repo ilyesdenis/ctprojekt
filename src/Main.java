@@ -1,4 +1,7 @@
+import com.sun.javafx.application.PlatformImpl;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -24,7 +27,7 @@ public class Main extends Application {
     public static void main(String[] args) throws Exception {
 	LoadingscreenController loadingscreenController =new LoadingscreenController();
        // grafik.initialise(); Experimental!!Experimental!!Experimental!!Experimental!!Experimental!!Experimental!!Experimental!
-    Application.launch();
+        Application.launch();
     }
 
 

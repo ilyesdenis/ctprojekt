@@ -1,13 +1,21 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -16,6 +24,9 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 //import java.util.Random;
 
@@ -23,6 +34,7 @@ import java.util.ResourceBundle;
 public class RoulettefeldController implements Initializable {
 
 
+    public AnchorPane ap;
     @FXML
     private MediaView mediaView;
     private File file;
@@ -41,19 +53,34 @@ public class RoulettefeldController implements Initializable {
     private Label LbWinNumCircle;
     public Label LbBettingAmount;
     //Buttons
-    public Rectangle zero, three, two, one, six, five, four, nine, eight, seven, twelve, eleven, firsttwelve, ten, onetoeighteen, even, twentyone, twenty, row1, row2, row3, thirtyfour, thirtyfive, thirtysix, thirtyone;
-    public Rectangle thirtytwo, thirtythree, twetnyeight, twentynine, thirty, twentyfive, twentysix, twentyseven, nineteen, twentytwo, twentythree, twentyfour, sixteen, seventeen, eighteen, nineteenToThirtysix;
-    public Rectangle odd, black, red, thirteen, third12, secondtwelve, fourteen, fifteen;
+    public AnchorPane zero, three, two, one, six, five, four, nine, eight, seven, twelve, eleven, firsttwelve, ten, onetoeighteen, even, twentyone, twenty, row1, row2, row3, thirtyfour, thirtyfive, thirtysix, thirtyone;
+    public AnchorPane thirtytwo, thirtythree, twetnyeight, twentynine, thirty, twentyfive, twentysix, twentyseven, nineteen, twentytwo, twentythree, twentyfour, sixteen, seventeen, eighteen, nineteentothirtysix;
+    public AnchorPane odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen;
+    public AnchorPane sp;
     int kugelpos, spin = 0 ;
 
 
 
+
     private int[] bets=new int[50];
+    private int[] chipson=new int[50];
     int chips=0;
     private Calc calc=new Calc();
 
     private int[]  redNumbers = {1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36};
+//chip images -------------------------------------------------------------------------------------------------------------------------------------------------------
 
+    Image img2= new Image("file:./src/img/chip2.png",50,50,true,true);
+    Image img3= new Image("file:./src/img/chip5.png",50,50,true,true);
+    Image img4= new Image("file:./src/img/chip10.png",50,50,true,true);
+
+    ImageView iv2=new ImageView(img2);
+    ImageView iv3=new ImageView(img3);
+    ImageView iv4=new ImageView(img4);
+
+    HashMap<String, ImageView> ivs = new HashMap<String, ImageView>();
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -70,7 +97,7 @@ public class RoulettefeldController implements Initializable {
 
         BtSpin.setStyle("-fx-background-color: #2cab27"); // if Spin button clicked change color to green
 
-        // TO show which Color the winning number has
+        // TO show which Color the winning number has NEEED TO FIX THIS(RED)---Denis
 
        for (int i =0; i< 18;i++){
             if (kugelpos == redNumbers[i] ) {
@@ -102,11 +129,28 @@ public class RoulettefeldController implements Initializable {
     @Override
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        file = new File("./src/mov/asd.mp4");
+        file = new File("./src/mov/asd.mp4"); // loads the mp4 file
         media = new Media(file.toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaView.setMediaPlayer(mediaPlayer);
 
+        for(int i = 0; i < 50; i++){
+            for (int j=0;j<50;j++) {
+                ivs.put(j+"chipone" + i, new ImageView(new Image("file:./src/img/chip1.png", 50, 50, true, true)));
+                ivs.put(j + "chiptwo" + i, new ImageView(new Image("file:./src/img/chip2.png", 50, 50, true, true)));
+                ivs.put(j + "chipfive" + i, new ImageView(new Image("file:./src/img/chip5.png", 50, 50, true, true)));
+                ivs.put(j+"chipten" + i, new ImageView(new Image("file:./src/img/chip10.png",50,50,true,true)));
+                ivs.put(j+"chiptwenty" + i, new ImageView(new Image("file:./src/img/chip20.png",50,50,true,true)));
+                ivs.put(j+"chiptwentyfive" + i, new ImageView(new Image("file:./src/img/chip25.png",50,50,true,true)));
+                ivs.put(j + "chipfifty" + i, new ImageView(new Image("file:./src/img/chip50.png", 50, 50, true, true)));
+                ivs.put(j+"chiphoundred" + i, new ImageView(new Image("file:./src/img/chip100.png",50,50,true,true)));
+                ivs.put(j+"chiptwohounderdfifty" + i, new ImageView(new Image("file:./src/img/chip250.png",50,50,true,true)));
+                ivs.put(j+"chipfivehoundred" + i, new ImageView(new Image("file:./src/img/chip500.png",50,50,true,true)));
+                ivs.put(j+"chipthausend" + i, new ImageView(new Image("file:./src/img/chip1000.png",50,50,true,true)));
+                ivs.put(j+"chiptwothausend" + i, new ImageView(new Image("file:./src/img/chip2000.png",50,50,true,true)));
+                ivs.put(j+"chipfivethausend" + i, new ImageView(new Image("file:./src/img/chip5000.png",50,50,true,true)));
+            }
+        }
 
     }
 
@@ -132,220 +176,214 @@ public class RoulettefeldController implements Initializable {
     //roulettefield -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-
+    public void setbeton(int field, MouseEvent mouseEvent,AnchorPane calledby){ //sets the bet on bets and visual
+        if (mouseEvent.getButton()== MouseButton.PRIMARY){
+            System.out.println("ZERO");
+            bets[field]=bets[field]+chips;
+            stack(calledby,chipson[field],field);
+            chipson[field]++;
+        }else if(mouseEvent.getButton()== MouseButton.SECONDARY){
+            calledby.getChildren().clear();
+            bets[field]=0;
+            chipson[field]=0;
+        }
+    }
 
     public void zero(MouseEvent mouseEvent) {
-        System.out.println("ZERO");
-        bets[0]=bets[0]+chips;
-
+        setbeton(0,mouseEvent,zero); //
     }
 
     public void three(MouseEvent mouseEvent) {
-        System.out.println("3");
-        bets[3]=bets[3]+chips;
+        setbeton(3,mouseEvent,three);
     }
 
     public void two(MouseEvent mouseEvent) {
-        System.out.println("2");
-        bets[2]=bets[2]+chips;
+        setbeton(2,mouseEvent,two);
     }
 
     public void one(MouseEvent mouseEvent) {
-        System.out.println("1");
-        bets[1]=bets[1]+chips;
+        setbeton(1,mouseEvent,one);
     }
 
     public void six(MouseEvent mouseEvent) {
-        System.out.println("6");
-        bets[6]=bets[6]+chips;
+        setbeton(6,mouseEvent,six);
     }
 
     public void five(MouseEvent mouseEvent) {
-        System.out.println("5");
-        bets[5]=bets[5]+chips;
+        setbeton(5,mouseEvent,five);
     }
 
     public void four(MouseEvent mouseEvent) {
-        System.out.println("4");
-        bets[4]=bets[4]+chips;
+        setbeton(4,mouseEvent,four);
     }
 
     public void nine(MouseEvent mouseEvent) {
-        System.out.println("9");
-        bets[9]=bets[9]+chips;
+        setbeton(9,mouseEvent,nine);
     }
 
     public void eight(MouseEvent mouseEvent) {
-        System.out.println("8");
-        bets[8]=bets[8]+chips;
+        setbeton(8,mouseEvent,eight);
     }
 
     public void seven(MouseEvent mouseEvent) {
-        System.out.println("7");
-        bets[7]=bets[7]+chips;
+        setbeton(7,mouseEvent,seven);
     }
 
     public void twelve(MouseEvent mouseEvent) {
-        System.out.println("12");
-        bets[12]=bets[12]+chips;
+        setbeton(12,mouseEvent,twelve);
     }
 
     public void eleven(MouseEvent mouseEvent) {
-        System.out.println("11");
-        bets[11]=bets[11]+chips;
+        setbeton(11,mouseEvent,eleven);
     }
 
     public void ten(MouseEvent mouseEvent) {
-        System.out.println("10");
-        bets[10]=bets[10]+chips;
+        setbeton(10,mouseEvent,ten);
     }
 
     public void firsttwelve(MouseEvent mouseEvent) {
-        System.out.println("1st12");
-        bets[37]=bets[37]+chips;
+        setbeton(37,mouseEvent,firsttwelve);
     }
 
     public void onetoeighteen(MouseEvent mouseEvent) {
-        System.out.println("1to18");
-        bets[38]=bets[38]+chips;
+        setbeton(38,mouseEvent,onetoeighteen);
     }
 
     public void even(MouseEvent mouseEvent) {
-        System.out.println("even");
-        bets[39]=bets[39]+chips;
+        setbeton(39,mouseEvent,even);
     }
 
     public void fifteen(MouseEvent mouseEvent) {
-        bets[15]=bets[15]+chips;
+        setbeton(15,mouseEvent,fifteen);
     }
 
     public void fourteen(MouseEvent mouseEvent) {
-        bets[14]=bets[14]+chips;
+        setbeton(14,mouseEvent,fourteen);
     }
 
     public void thirteen(MouseEvent mouseEvent) {
-        bets[13]=bets[13]+chips;
+        setbeton(13,mouseEvent,thirteen);
     }
 
     public void secoundtwelve(MouseEvent mouseEvent) {
-        bets[40]=bets[40]+chips;
+        setbeton(40,mouseEvent,secoundtwelve);
     }
 
     public void thirdtwelve(MouseEvent mouseEvent) {
-        bets[41]=bets[41]+chips;
+        setbeton(41,mouseEvent,thirdtwelve);
     }
 
     public void red(MouseEvent mouseEvent) {
-        bets[42]=bets[42]+chips;
+        setbeton(42,mouseEvent,red);
     }
 
     public void black(MouseEvent mouseEvent) {
-        bets[43]=bets[43]+chips;
+        setbeton(43,mouseEvent,black);
        // System.out.println("DEBUG BLACK");
     }
 
     public void odd(MouseEvent mouseEvent) {
-        bets[44]=bets[44]+chips;
+        setbeton(44,mouseEvent,odd);
     }
 
     public void nineteentothirtysix(MouseEvent mouseEvent) {
-        bets[45]=bets[45]+chips;
+        setbeton(45,mouseEvent,nineteentothirtysix);
     }
 
     public void eighteen(MouseEvent mouseEvent) {
-        bets[18]=bets[18]+chips;
+        setbeton(18,mouseEvent,eighteen);
     }
 
     public void seventeen(MouseEvent mouseEvent) {
-        bets[17]=bets[17]+chips;
+        setbeton(17,mouseEvent,seventeen);
     }
 
     public void sixteen(MouseEvent mouseEvent) {
-        bets[16]=bets[16]+chips;
+        setbeton(16,mouseEvent,sixteen);
     }
 
     public void twentyfour(MouseEvent mouseEvent) {
-        bets[24]=bets[24]+chips;
+        setbeton(24,mouseEvent,twentyfour);
     }
 
     public void twentythree(MouseEvent mouseEvent) {
-        bets[23]=bets[23]+chips;
+        setbeton(23,mouseEvent,twentythree);
     }
 
     public void twentytwo(MouseEvent mouseEvent) {
-        bets[22]=bets[22]+chips;
+        setbeton(22,mouseEvent,twentytwo);
     }
 
     public void twentyseven(MouseEvent mouseEvent) {
-        bets[27]=bets[27]+chips;
+        setbeton(27,mouseEvent,twentyseven);
     }
 
     public void twentysix(MouseEvent mouseEvent) {
-        bets[26]=bets[26]+chips;
+        setbeton(26,mouseEvent,twentysix);
     }
 
     public void twentyfive(MouseEvent mouseEvent) {
-        bets[25]=bets[25]+chips;
+        setbeton(25,mouseEvent,twentyfive);
     }
 
     public void thirty(MouseEvent mouseEvent) {
-        bets[30]=bets[30]+chips;
+        setbeton(30,mouseEvent,thirty);
     }
 
     public void twentynine(MouseEvent mouseEvent) {
-        bets[19]=bets[19]+chips;
+        setbeton(29,mouseEvent,twentynine);
     }
 
     public void twetnyeight(MouseEvent mouseEvent) {
-        bets[28]=bets[28]+chips;
+        setbeton(28,mouseEvent,twetnyeight);
     }
 
     public void thirtythree(MouseEvent mouseEvent) {
-        bets[33]=bets[33]+chips;
+        setbeton(33,mouseEvent,thirtythree);;
     }
 
     public void thirtytwo(MouseEvent mouseEvent) {
-        bets[32]=bets[32]+chips;
+        setbeton(32,mouseEvent,thirtytwo);
     }
 
     public void thirtyone(MouseEvent mouseEvent) {
-        bets[31]=bets[31]+chips;
+        setbeton(31,mouseEvent,thirtyone);
     }
 
     public void thirtysix(MouseEvent mouseEvent) {
-        bets[36]=bets[36]+chips;
+        setbeton(36,mouseEvent,thirtysix);
     }
 
     public void thirtyfive(MouseEvent mouseEvent) {
-        bets[35]=bets[35]+chips;
+        setbeton(35,mouseEvent,thirtyfive);
     }
 
     public void thirtyfour(MouseEvent mouseEvent) {
-        bets[34]=bets[34]+chips;
+        setbeton(34,mouseEvent,thirtyfour);
     }
 
     public void row2(MouseEvent mouseEvent) {
-        bets[47]=bets[47]+chips;
+        setbeton(47,mouseEvent,row3);
     }
 
     public void row3(MouseEvent mouseEvent) {
-        bets[48]=bets[48]+chips;
+        setbeton(48,mouseEvent,row3);
     }
 
     public void row1(MouseEvent mouseEvent) {
-        bets[49]=bets[49]+chips;
+        setbeton(49,mouseEvent,row1);
     }
 
     public void twentyone(MouseEvent mouseEvent) {
-        bets[21]=bets[21]+chips;
+        setbeton(21,mouseEvent,twentyone);
     }
 
     public void twenty(MouseEvent mouseEvent) {
-        bets[20]=bets[20]+chips;
+        setbeton(20,mouseEvent,twenty);
     }
 
     public void nineteen(MouseEvent mouseEvent) {
-        bets[19]=bets[19]+chips;
+        setbeton(19,mouseEvent,nineteen);
     }
 
 
@@ -354,8 +392,8 @@ public class RoulettefeldController implements Initializable {
 
     public int getspin() {
         return calc.spinit();
-    }
-    public int getwin() { return calc.calculateWin(bets); }
+    } //handled in Calc
+    public int getwin() { return calc.calculateWin(bets); } //handled in Calc
     private void resetbets() {
         for (int i = 0; i <50 ; i++) {
           bets[i]=0;
@@ -370,27 +408,27 @@ public class RoulettefeldController implements Initializable {
 
         @FXML
         void bettingAmount1(MouseEvent event) {
-        chips = chips+1;
+        chips = 1;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
 
         }
     @FXML
     void bettingAmount2(MouseEvent event) {
-        chips = chips+ 2;
+        chips = 2;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
 
     }
 
     @FXML
     void bettingAmount5(MouseEvent event) {
-        chips = chips+ 5;
+        chips = 5;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
 
     }
 
     @FXML
     void bettingAmount10(MouseEvent event){
-        chips = chips+ 10;
+        chips =10;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
 
     }
@@ -398,56 +436,135 @@ public class RoulettefeldController implements Initializable {
 
     @FXML
     void bettingAmount20(MouseEvent event) {
-        chips = chips+ 20;
+        chips = 20;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
 
     }
 
     @FXML
     void bettingAmount25(MouseEvent event) {
-        chips = chips+ 25;
+        chips = 25;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
     }
 
     @FXML
     void bettingAmount50(MouseEvent event) {
-        chips = chips+ 50;
+        chips = 50;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
     }
 
     @FXML
     void bettingAmount100(MouseEvent event) {
-        chips = chips+ 100;
+        chips = 100;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
 
     }
 
     @FXML
     void bettingAmount250(MouseEvent event) {
-        chips = chips+ 250;
+        chips =250;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
     }
 
     @FXML
     void bettingAmount500(MouseEvent event) {
-        chips = chips+ 500;
+        chips =500;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
     }
     @FXML
     void bettingAmount1000(MouseEvent event) {
-        chips = chips+ 100;
+        chips =100;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
     }
 
     @FXML
     void bettingAmount2000(MouseEvent event) {
-        chips = chips+ 2000;
+        chips = 2000;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
     }
 
     @FXML
     void bettingAmount5000(MouseEvent event) {
-        chips = chips+ 5000;
+        chips = 5000;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
     }
-}
+
+    boolean idk=false;
+    @FXML
+   /* public void stackit(MouseEvent mouseEvent) throws Exception {
+        if(idk==false) {
+            iv.setY(-100);
+            sp.getChildren().add(iv);
+            sp.setBottomAnchor(iv, (double) 0);
+            sp.getChildren().add(iv2);
+            sp.setBottomAnchor(iv2, (double) 2);
+            sp.getChildren().add(iv3);
+            sp.setBottomAnchor(iv3, (double) 4);
+            sp.getChildren().add(iv4);
+            sp.setBottomAnchor(iv4, (double) 6);
+            idk=true;
+        }else{
+        sp.getChildren().clear();
+        idk=false;
+        }
+    }*/
+    public void stack(AnchorPane calledby,int chipsonfield,int fieldid){
+        switch (chips){
+            case 0:
+                System.out.println("ERROR: Bet is 0");
+                break;
+            case 1:
+                calledby.getChildren().add(ivs.get(fieldid+"chipone"+chipsonfield));
+                calledby.setBottomAnchor(ivs.get(fieldid+"chipone"+chipsonfield),(double)chipsonfield);
+                break;
+            case 2:
+                calledby.getChildren().add(ivs.get(fieldid+"chiptwo"+chipsonfield));
+                calledby.setBottomAnchor(ivs.get(fieldid+"chiptwo"+chipsonfield),(double)chipsonfield);
+                break;
+            case 5:
+                calledby.getChildren().add(ivs.get(fieldid+"chipfive"+chipsonfield));
+                calledby.setBottomAnchor(ivs.get(fieldid+"chipfive"+chipsonfield),(double)chipsonfield);
+                break;
+            case 10:
+                calledby.getChildren().add(ivs.get(fieldid+"chipten"+chipsonfield));
+                calledby.setBottomAnchor(ivs.get(fieldid+"chipten"+chipsonfield),(double)chipsonfield);
+                break;
+            case 20:
+                calledby.getChildren().add(ivs.get(fieldid+"chiptwenty"+chipsonfield));
+                calledby.setBottomAnchor(ivs.get(fieldid+"chiptwenty"+chipsonfield),(double)chipsonfield);
+                break;
+            case 25:
+                calledby.getChildren().add(ivs.get(fieldid+"chiptwentyfive"+chipsonfield));
+                calledby.setBottomAnchor(ivs.get(fieldid+"chiptwentyfive"+chipsonfield),(double)chipsonfield);
+                break;
+            case 50:
+                calledby.getChildren().add(ivs.get(fieldid+"chipfifty"+chipsonfield));
+                calledby.setBottomAnchor(ivs.get(fieldid+"chipfifty"+chipsonfield),(double)chipsonfield);
+                break;
+            case 100:
+                calledby.getChildren().add(ivs.get(fieldid+"chiphoundred"+chipsonfield));
+                calledby.setBottomAnchor(ivs.get(fieldid+"chiphoundred"+chipsonfield),(double)chipsonfield);
+                break;
+            case 250:
+                calledby.getChildren().add(ivs.get(fieldid+"chiptwohounderdfifty"+chipsonfield));
+                calledby.setBottomAnchor(ivs.get(fieldid+"chiptwohounderdfifty"+chipsonfield),(double)chipsonfield);
+                break;
+            case 500:
+                calledby.getChildren().add(ivs.get(fieldid+"chipfivehoundred"+chipsonfield));
+                calledby.setBottomAnchor(ivs.get(fieldid+"chipfivehoundred"+chipsonfield),(double)chipsonfield);
+                break;
+            case 1000:
+                calledby.getChildren().add(ivs.get(fieldid+"chipthausend"+chipsonfield));
+                calledby.setBottomAnchor(ivs.get(fieldid+"chipthausend"+chipsonfield),(double)chipsonfield);
+                break;
+            case 2000:
+                calledby.getChildren().add(ivs.get(fieldid+"chiptwothausend"+chipsonfield));
+                calledby.setBottomAnchor(ivs.get(fieldid+"chiptwothausend"+chipsonfield),(double)chipsonfield);
+                break;
+            case 5000:
+                calledby.getChildren().add(ivs.get(fieldid+"chipfivethausend"+chipsonfield));
+                calledby.setBottomAnchor(ivs.get(fieldid+"chipfivethausend"+chipsonfield),(double)chipsonfield);
+                break;
+        }
+    }
+}//eoc

@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.media.MediaView?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
-
-<AnchorPane fx:id="winNumb" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RoulettefeldController">
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.shape.Circle?>
+<AnchorPane fx:id="ap" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RoulettefeldController">
    <children>
       <ImageView fitHeight="244.0" fitWidth="900.0" layoutY="269.0">
          <image>
@@ -19,123 +22,130 @@
          </image>
       </ImageView>
       <MediaView fx:id="mediaView" fitHeight="150.0" fitWidth="215.0" layoutX="660.0" layoutY="19.0" />
-      <Rectangle fx:id="zero" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="138.0" layoutX="38.0" layoutY="276.0" onMouseClicked="#zero" stroke="TRANSPARENT" strokeType="INSIDE" width="47.0" />
-      <Rectangle fx:id="three" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="93.0" layoutY="271.0" onMouseClicked="#three" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="two" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="93.0" layoutY="320.0" onMouseClicked="#two" stroke="TRANSPARENT" strokeType="INSIDE" width="54.0" />
-      <Rectangle fx:id="one" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="93.0" layoutY="370.0" onMouseClicked="#one" stroke="TRANSPARENT" strokeType="INSIDE" width="54.0" />
-      <Rectangle fx:id="six" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="51.0" layoutX="154.0" layoutY="267.0" onMouseClicked="#six" stroke="TRANSPARENT" strokeType="INSIDE" width="54.0" />
-      <Rectangle fx:id="five" arcHeight="5.0" arcWidth="5.0" fill="#ff212100" height="44.0" layoutX="154.0" layoutY="320.0" onMouseClicked="#five" stroke="TRANSPARENT" strokeType="INSIDE" width="54.0" />
-      <Rectangle fx:id="four" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="154.0" layoutY="370.0" onMouseClicked="#four" stroke="TRANSPARENT" strokeType="INSIDE" width="54.0" />
-      <Rectangle fx:id="nine" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="51.0" layoutX="214.0" layoutY="267.0" onMouseClicked="#nine" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="eight" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="51.0" layoutX="214.0" layoutY="316.0" onMouseClicked="#eight" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="seven" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="217.0" layoutY="370.0" onMouseClicked="#seven" stroke="TRANSPARENT" strokeType="INSIDE" width="54.0" />
-      <Rectangle fx:id="twelve" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="47.0" layoutX="281.0" layoutY="270.0" onMouseClicked="#twelve" stroke="TRANSPARENT" strokeType="INSIDE" width="53.0" />
-      <Rectangle fx:id="eleven" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="281.0" layoutY="319.0" onMouseClicked="#eleven" stroke="TRANSPARENT" strokeType="INSIDE" width="52.0" />
-      <Rectangle fx:id="ten" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="47.0" layoutX="281.0" layoutY="364.0" onMouseClicked="#ten" stroke="TRANSPARENT" strokeType="INSIDE" width="53.0" />
-      <Rectangle fx:id="firsttwelve" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="93.0" layoutY="414.0" onMouseClicked="#firsttwelve" stroke="TRANSPARENT" strokeType="INSIDE" width="241.0" />
-      <Rectangle fx:id="onetoeighteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="93.0" layoutY="454.0" onMouseClicked="#onetoeighteen" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
-      <Rectangle fx:id="even" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="213.0" layoutY="451.0" onMouseClicked="#even" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
+      <AnchorPane fx:id="zero" prefHeight="142.0" layoutX="35.0" layoutY="283.0" onMouseClicked="#zero" prefWidth="52.0" />
+      <AnchorPane fx:id="three" prefHeight="44.0" layoutX="90.0" layoutY="283.0" onMouseClicked="#three" prefWidth="60.0" />
+      <AnchorPane fx:id="two" prefHeight="44.0" layoutX="93.0" layoutY="332.0" onMouseClicked="#two" prefWidth="54.0" />
+      <AnchorPane fx:id="one" prefHeight="51.0" layoutX="93.0" layoutY="378.0" onMouseClicked="#one" prefWidth="55.0" />
+      <AnchorPane fx:id="six" prefHeight="47.0" layoutX="154.0" layoutY="284.0" onMouseClicked="#six" prefWidth="55.0" />
+      <AnchorPane fx:id="five" prefHeight="44.0" layoutX="155.0" layoutY="332.0" onMouseClicked="#five" prefWidth="54.0" />
+      <AnchorPane fx:id="four" prefHeight="44.0" layoutX="155.0" layoutY="381.0" onMouseClicked="#four" prefWidth="54.0" />
+      <AnchorPane fx:id="nine" prefHeight="51.0" layoutX="214.0" layoutY="282.0" onMouseClicked="#nine" prefWidth="60.0" />
+      <AnchorPane fx:id="eight" prefHeight="51.0" layoutX="214.0" layoutY="328.0" onMouseClicked="#eight" prefWidth="60.0" />
+      <AnchorPane fx:id="seven" prefHeight="44.0" layoutX="217.0" layoutY="381.0" onMouseClicked="#seven" prefWidth="54.0" />
+      <AnchorPane fx:id="twelve" prefHeight="47.0" layoutX="279.0" layoutY="284.0" onMouseClicked="#twelve" prefWidth="55.0" />
+      <AnchorPane fx:id="eleven" prefHeight="45.0" layoutX="281.0" layoutY="332.0" onMouseClicked="#eleven" prefWidth="52.0" />
+      <AnchorPane fx:id="ten" prefHeight="47.0" layoutX="280.0" layoutY="380.0" onMouseClicked="#ten" prefWidth="53.0" />
+      <AnchorPane fx:id="firsttwelve" prefHeight="32.0" layoutX="94.0" layoutY="430.0" onMouseClicked="#firsttwelve" prefWidth="241.0" />
+      <AnchorPane fx:id="onetoeighteen" prefHeight="32.0" layoutX="95.0" layoutY="467.0" onMouseClicked="#onetoeighteen" prefWidth="118.0" />
+      <AnchorPane fx:id="even" prefHeight="32.0" layoutX="215.0" layoutY="467.0" onMouseClicked="#even" prefWidth="118.0" />
       <Button fx:id="BtSpin" layoutX="658.0" layoutY="157.0" mnemonicParsing="false" onAction="#DisplayNumber" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #d2eb34;" text="SPIN" />
-      <Rectangle fx:id="fifteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="338.0" layoutY="267.0" onMouseClicked="#fifteen" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="fourteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="340.0" layoutY="319.0" onMouseClicked="#fourteen" stroke="TRANSPARENT" strokeType="INSIDE" width="53.0" />
-      <Rectangle fx:id="thirteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="338.0" layoutY="367.0" onMouseClicked="#thirteen" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
-      <Rectangle fx:id="secoundtwelve" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="338.0" layoutY="414.0" onMouseClicked="#secoundtwelve" stroke="TRANSPARENT" strokeType="INSIDE" width="241.0" />
-      <Rectangle fx:id="thirdtwelve" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="588.0" layoutY="415.0" onMouseClicked="#thirdtwelve" stroke="TRANSPARENT" strokeType="INSIDE" width="241.0" />
-      <Rectangle fx:id="red" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="341.0" layoutY="451.0" onMouseClicked="#red" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
-      <Rectangle fx:id="black" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="453.0" layoutY="455.0" onMouseClicked="#black" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
-      <Rectangle fx:id="odd" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="581.0" layoutY="452.0" onMouseClicked="#odd" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
-      <Rectangle fx:id="nineteentothirtysix" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="32.0" layoutX="714.0" layoutY="453.0" onMouseClicked="#nineteentothirtysix" stroke="TRANSPARENT" strokeType="INSIDE" width="118.0" />
-      <Rectangle fx:id="eighteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="395.0" layoutY="270.0" onMouseClicked="#eighteen" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="seventeen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="398.0" layoutY="316.0" onMouseClicked="#seventeen" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="sixteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="396.0" layoutY="365.0" onMouseClicked="#sixteen" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="twentyfour" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="522.0" layoutY="273.0" onMouseClicked="#twentyfour" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="twentythree" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="522.0" layoutY="319.0" onMouseClicked="#twentythree" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="twentytwo" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="522.0" layoutY="366.0" onMouseClicked="#twentytwo" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="twentyseven" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="584.0" layoutY="274.0" onMouseClicked="#twentyseven" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="twentysix" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="583.0" layoutY="319.0" onMouseClicked="#twentysix" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="twentyfive" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="583.0" layoutY="371.0" onMouseClicked="#twentyfive" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="thirty" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="644.0" layoutY="273.0" onMouseClicked="#thirty" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="twentynine" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="644.0" layoutY="315.0" onMouseClicked="#twentynine" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="twetnyeight" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="646.0" layoutY="363.0" onMouseClicked="#twetnyeight" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="thirtythree" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="707.0" layoutY="270.0" onMouseClicked="#thirtythree" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="thirtytwo" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="705.0" layoutY="319.0" onMouseClicked="#thirtytwo" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="thirtyone" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="707.0" layoutY="362.0" onMouseClicked="#thirtyone" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="thirtysix" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="765.0" layoutY="276.0" onMouseClicked="#thirtysix" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="thirtyfive" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="765.0" layoutY="319.0" onMouseClicked="#thirtyfive" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="thirtyfour" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="766.0" layoutY="370.0" onMouseClicked="#thirtyfour" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="row3" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="832.0" layoutY="274.0" onMouseClicked="#row3" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="row2" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="828.0" layoutY="324.0" onMouseClicked="#row2" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="row1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="831.0" layoutY="369.0" onMouseClicked="#row1" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="twentyone" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="461.0" layoutY="276.0" onMouseClicked="#twentyone" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="twenty" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="462.0" layoutY="316.0" onMouseClicked="#twenty" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
-      <Rectangle fx:id="nineteen" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="45.0" layoutX="462.0" layoutY="368.0" onMouseClicked="#nineteen" stroke="TRANSPARENT" strokeType="INSIDE" width="60.0" />
+      <AnchorPane fx:id="fifteen" prefHeight="45.0" layoutX="337.0" layoutY="283.0" onMouseClicked="#fifteen" prefWidth="60.0" />
+      <AnchorPane fx:id="fourteen" prefHeight="45.0" layoutX="336.0" layoutY="331.0" onMouseClicked="#fourteen" prefWidth="60.0" />
+      <AnchorPane fx:id="thirteen" prefHeight="45.0" layoutX="340.0" layoutY="381.0" onMouseClicked="#thirteen" prefWidth="55.0" />
+      <AnchorPane fx:id="secoundtwelve" prefHeight="32.0" layoutX="339.0" layoutY="430.0" onMouseClicked="#secoundtwelve" prefWidth="241.0" />
+      <AnchorPane fx:id="thirdtwelve" prefHeight="32.0" layoutX="587.0" layoutY="430.0" onMouseClicked="#thirdtwelve" prefWidth="241.0" />
+      <AnchorPane fx:id="red" prefHeight="32.0" layoutX="339.0" layoutY="467.0" onMouseClicked="#red" prefWidth="118.0" />
+      <AnchorPane fx:id="black" prefHeight="32.0" layoutX="458.0" layoutY="467.0" onMouseClicked="#black" prefWidth="118.0" />
+      <AnchorPane fx:id="odd" prefHeight="32.0" layoutX="583.0" layoutY="467.0" onMouseClicked="#odd" prefWidth="118.0" />
+      <AnchorPane fx:id="nineteentothirtysix" prefHeight="32.0" layoutX="708.0" layoutY="467.0" onMouseClicked="#nineteentothirtysix" prefWidth="118.0" />
+      <AnchorPane fx:id="eighteen" prefHeight="45.0" layoutX="398.0" layoutY="285.0" onMouseClicked="#eighteen" prefWidth="60.0" />
+      <AnchorPane fx:id="seventeen" prefHeight="45.0" layoutX="398.0" layoutY="331.0" onMouseClicked="#seventeen" prefWidth="60.0" />
+      <AnchorPane fx:id="sixteen" prefHeight="45.0" layoutX="398.0" layoutY="381.0" onMouseClicked="#sixteen" prefWidth="60.0" />
+      <AnchorPane fx:id="twentyfour" prefHeight="45.0" layoutX="522.0" layoutY="285.0" onMouseClicked="#twentyfour" prefWidth="60.0" />
+      <AnchorPane fx:id="twentythree" prefHeight="45.0" layoutX="522.0" layoutY="332.0" onMouseClicked="#twentythree" prefWidth="60.0" />
+      <AnchorPane fx:id="twentytwo" prefHeight="45.0" layoutX="522.0" layoutY="380.0" onMouseClicked="#twentytwo" prefWidth="60.0" />
+      <AnchorPane fx:id="twentyseven" prefHeight="45.0" layoutX="582.0" layoutY="283.0" onMouseClicked="#twentyseven" prefWidth="60.0" />
+      <AnchorPane fx:id="twentysix" prefHeight="45.0" layoutX="583.0" layoutY="331.0" onMouseClicked="#twentysix" prefWidth="60.0" />
+      <AnchorPane fx:id="twentyfive" prefHeight="45.0" layoutX="583.0" layoutY="380.0" onMouseClicked="#twentyfive" prefWidth="60.0" />
+      <AnchorPane fx:id="thirty" prefHeight="45.0" layoutX="644.0" layoutY="285.0" onMouseClicked="#thirty" prefWidth="60.0" />
+      <AnchorPane fx:id="twentynine" prefHeight="45.0" layoutX="644.0" layoutY="331.0" onMouseClicked="#twentynine" prefWidth="60.0" />
+      <AnchorPane fx:id="twetnyeight" prefHeight="45.0" layoutX="644.0" layoutY="380.0" onMouseClicked="#twetnyeight" prefWidth="60.0" />
+      <AnchorPane fx:id="thirtythree" prefHeight="45.0" layoutX="705.0" layoutY="285.0" onMouseClicked="#thirtythree" prefWidth="60.0" />
+      <AnchorPane fx:id="thirtytwo" prefHeight="45.0" layoutX="705.0" layoutY="331.0" onMouseClicked="#thirtytwo" prefWidth="60.0" />
+      <AnchorPane fx:id="thirtyone" prefHeight="45.0" layoutX="707.0" layoutY="380.0" onMouseClicked="#thirtyone" prefWidth="60.0" />
+      <AnchorPane fx:id="thirtysix" prefHeight="45.0" layoutX="765.0" layoutY="285.0" onMouseClicked="#thirtysix" prefWidth="60.0" />
+      <AnchorPane fx:id="thirtyfive" prefHeight="45.0" layoutX="765.0" layoutY="331.0" onMouseClicked="#thirtyfive" prefWidth="60.0" />
+      <AnchorPane fx:id="thirtyfour" prefHeight="45.0" layoutX="765.0" layoutY="380.0" onMouseClicked="#thirtyfour" prefWidth="60.0" />
+      <AnchorPane fx:id="row3" prefHeight="45.0" layoutX="828.0" layoutY="283.0" onMouseClicked="#row3" prefWidth="60.0" />
+      <AnchorPane fx:id="row2" prefHeight="45.0" layoutX="828.0" layoutY="331.0" onMouseClicked="#row2" prefWidth="60.0" />
+      <AnchorPane fx:id="row1" prefHeight="45.0" layoutX="828.0" layoutY="380.0" onMouseClicked="#row1" prefWidth="60.0" />
+      <AnchorPane fx:id="twentyone" prefHeight="45.0" layoutX="457.0" layoutY="285.0" onMouseClicked="#twentyone" prefWidth="60.0" />
+      <AnchorPane fx:id="twenty" prefHeight="45.0" layoutX="457.0" layoutY="331.0" onMouseClicked="#twenty" prefWidth="60.0" />
+      <AnchorPane fx:id="nineteen" prefHeight="45.0" layoutX="457.0" layoutY="381.0" onMouseClicked="#nineteen" prefWidth="60.0" />
       <Label fx:id="Lbkugel" layoutX="278.0" layoutY="187.0" prefHeight="18.0" prefWidth="195.0" />
       <Text fx:id="textKugel" layoutX="324.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="102.0" />
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="220.0" onMouseClicked="#bettingAmount1" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/chip1.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="69.0" layoutY="218.0" onMouseClicked="#bettingAmount2" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/chip2.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="131.0" layoutY="223.0" onMouseClicked="#bettingAmount5" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/chip5.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="194.0" layoutY="219.0" onMouseClicked="#bettingAmount10" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/chip10.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="274.0" layoutY="219.0" onMouseClicked="#bettingAmount20" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/chip20.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="343.0" layoutY="218.0" onMouseClicked="#bettingAmount25" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/chip25.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="218.0" onMouseClicked="#bettingAmount50" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/chip50.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="487.0" layoutY="218.0" onMouseClicked="#bettingAmount100" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/chip100.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="49.0" fitWidth="47.0" layoutX="565.0" layoutY="219.0" onMouseClicked="#bettingAmount250" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/chip250.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="51.0" fitWidth="53.0" layoutX="640.0" layoutY="218.0" onMouseClicked="#bettingAmount500" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/chip500.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="713.0" layoutY="218.0" onMouseClicked="#bettingAmount1000" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/chip1000.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="782.0" layoutY="220.0" onMouseClicked="#bettingAmount2000" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/chip2000.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="850.0" layoutY="221.0" onMouseClicked="#bettingAmount5000" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/chip5000.jpg" />
-         </image>
-      </ImageView>
+      <HBox layoutX="10.0" layoutY="218.0" prefHeight="51.0" prefWidth="877.0" spacing="20.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#bettingAmount1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/chip1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#bettingAmount2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/chip2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#bettingAmount5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/chip5.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#bettingAmount10" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/chip10.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#bettingAmount20" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/chip20.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#bettingAmount25" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/chip25.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#bettingAmount50" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/chip50.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#bettingAmount100" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/chip100.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="49.0" fitWidth="47.0" onMouseClicked="#bettingAmount250" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/chip250.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="51.0" fitWidth="53.0" onMouseClicked="#bettingAmount500" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/chip500.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#bettingAmount1000" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/chip1000.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#bettingAmount2000" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/chip2000.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#bettingAmount5000" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/chip5000.png" />
+               </image>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
       <TextArea layoutX="17.0" layoutY="41.0" prefHeight="173.0" prefWidth="200.0" />
       <Circle fx:id="DisplayWinningNumber" fill="DODGERBLUE" layoutX="528.0" layoutY="60.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
       <Label alignment="TOP_LEFT" layoutX="382.0" layoutY="52.0" prefHeight="17.0" prefWidth="118.0" style="-fx-background-color: #2cab27;" text="   Winning Number:" textAlignment="CENTER" />
