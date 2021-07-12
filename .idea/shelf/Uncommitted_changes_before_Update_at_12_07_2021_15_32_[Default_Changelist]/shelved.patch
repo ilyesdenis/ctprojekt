@@ -1,0 +1,83 @@
+Index: src/Calc.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.util.Random;\r\n/*  bet IDs:\r\n* 0-36-the numbersx, 37-firsttwelvex, 38-onetoeighteenx, 39-evenx, 40-secoundtwelvex,41-thirdtwelvex\r\n* 42-redx, 43-blackx, 44-oddx, 45-nineteentothirtysixx, 47-row2x, 48-row3x, 49-row1x\r\n*\r\n*\r\n* */\r\n\r\npublic class Calc {\r\n\r\n    private int[] bets;\r\n    Random rand = new Random();\r\n    private int kugelpos;\r\n\r\n    public int spinit() {\r\n        kugelpos = rand.nextInt(37);\r\n        return kugelpos;\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n    public int calculateWin(int[] bets) {\r\n        this.bets = bets;\r\n        int win = 0;\r\n        for (int i = 0; i < 50; i++) {\r\n          //  int kugelpos = spinit();\r\n            if (bets[i]>0) { // bet on i is set\r\n                if (i < 37) {\r\n                    //*36\r\n                    if (kugelpos == i) {\r\n                        win = win + 36 * bets[i];//direct win, factor x36\r\n                        System.out.println(\"direct win on\"+i);\r\n                    }\r\n                }\r\n                //*2\r\n                if (i == 39) { //39 even\r\n                    //System.out.println(\"DEBUG 39 EVEN\");\r\n                    if (kugelpos % 2 == 0) {\r\n                       // System.out.println(\"DEBUG 39 ISEVEN\");\r\n                        win = win + 2 * bets[39];// even win, factor x2\r\n                    }\r\n                }\r\n                if (i == 44) { //44 odd\r\n                    if (kugelpos % 2 == 1) {\r\n                        win = win + 2 * bets[44];// odd win, factor x2\r\n                    }\r\n                }\r\n                if (i == 38) { //38 onetoeighteen\r\n                    if ((kugelpos > 0) && (kugelpos < 19)) {\r\n                        win = win + 2 * bets[38];// 1-18 win, factor x2\r\n                    }\r\n                }\r\n                if (i == 45) { //45 nineteentothirtysix\r\n                    if ((kugelpos > 18) && (kugelpos < 37)) {\r\n                        win = win + 2 * bets[45];// 1-18 win, factor x2\r\n                    }\r\n                }\r\n                if (i == 42) { //42 red ,checks for 43 black too\r\n                    if ((kugelpos == 1) || (kugelpos == 3) || (kugelpos == 5) || (kugelpos == 7) || (kugelpos == 9) || (kugelpos == 12) || (kugelpos == 14) || (kugelpos == 16) || (kugelpos == 18) || (kugelpos == 19) || (kugelpos == 21) || (kugelpos == 23) || (kugelpos == 25) || (kugelpos == 27) || (kugelpos == 30) || (kugelpos == 32) || (kugelpos == 34) || (kugelpos == 36)) {\r\n                        win = win + 2 * bets[42];// red win, factor x2\r\n                    }/*else if ((bets[43] > 0) && (kugelpos>0)) { //////////DOES  NOT WORK!!!!!!!!!!!!!\r\n                        win = win + 2 * bets[43];// black win, factor x2\r\n                    }*/\r\n                }\r\n                if(i==43){\r\n                    if ((kugelpos == 2) || (kugelpos == 4) || (kugelpos == 6) || (kugelpos == 8) || (kugelpos == 10) || (kugelpos == 11) || (kugelpos == 13) || (kugelpos == 15) || (kugelpos == 17) || (kugelpos == 20) || (kugelpos == 22) || (kugelpos == 24) || (kugelpos == 26) || (kugelpos == 28) || (kugelpos == 29) || (kugelpos == 31) || (kugelpos == 33)|| (kugelpos == 35)) {\r\n                        win = win + 2 * bets[43];// black win, factor x2\r\n                    }\r\n                }\r\n\r\n\r\n                //x3\r\n                if (i == 37) { //37 first12\r\n                    if ((kugelpos > 0) && (kugelpos < 13)) {\r\n                        win = win + 3 * bets[37]; //first 12 win, factor x3\r\n                    }\r\n                }\r\n                if (i == 40) { //40 secoundtwelve\r\n                    if ((kugelpos > 12) && (kugelpos < 25)) {\r\n                        win = win + 3 * bets[40]; //secound 12 win, factor x3\r\n                    }\r\n                }\r\n                if (i == 41) { //41 thirdtwelve\r\n                    if ((kugelpos > 24) && (kugelpos < 37)) {\r\n                        win = win + 3 * bets[41]; //third 12 win, factor x3\r\n                    }\r\n                }\r\n                if (i == 49) { //49 row1\r\n                    if (kugelpos % 3 == 1) {\r\n                        win = win + 3 * bets[49]; //row1 win, factor x3\r\n                    }\r\n                }\r\n                if (i == 47) { //47 row2\r\n                    if (kugelpos % 3 == 2) {\r\n                        win = win + 3 * bets[47]; //row2 win, factor x3\r\n                    }\r\n                }\r\n                if (i == 48) { //49 row1\r\n                    if (kugelpos % 3 == 0) {\r\n                        win = win + 3 * bets[48]; //row3 win, factor x3\r\n                    }\r\n                }\r\n            }\r\n        }\r\n        System.out.println(\"win:\"+win);\r\n        return win;\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Calc.java b/src/Calc.java
+--- a/src/Calc.java	(revision 9a90b01b806f88b437f22f6303fbf919791d131f)
++++ b/src/Calc.java	(date 1626044087823)
+@@ -7,6 +7,7 @@
+ * */
+ 
+ public class Calc {
++    MySql_Database sql = new MySql_Database();
+ 
+     private int[] bets;
+     Random rand = new Random();
+@@ -32,6 +33,7 @@
+                     if (kugelpos == i) {
+                         win = win + 36 * bets[i];//direct win, factor x36
+                         System.out.println("direct win on"+i);
++                        sql.changeCredit(win);
+                     }
+                 }
+                 //*2
+Index: src/MySql_Database.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.sql.*;\r\nimport java.sql.Connection;\r\nimport java.sql.DriverManager;\r\nimport java.sql.ResultSet;\r\nimport java.sql.Statement;\r\nimport java.sql.SQLException;\r\n\r\n\r\npublic class MySql_Database  {\r\n        String name;\r\n        String password;\r\n        boolean regestriert = false;\r\n        String cname;\r\n        String cpassword;\r\n        boolean angemeldet = false;\r\n        double credit;\r\n\r\n    public void setData(String name, String password ) throws SQLException {\r\n        this.name = name;\r\n        this.password = password;\r\n\r\n\r\n        try {\r\n            Connection con = DriverManager.getConnection(\"jdbc:mysql://localhost:3306/playerdata\", \"root\", \"virtuspro\");\r\n                // Verbindung herstellen mit URL + Username + Passwort\r\n            System.out.println(\"Erfolgreich mit Datenbank verbunden\");\r\n\r\n            Statement statement = con.createStatement();\r\n                // Notwendig um ein Query befehl von java in MySQL Workebench auszuführen\r\n\r\n            statement.execute(\"insert into R_user (username, credit, r_password) values \" +\r\n                    \"('\"+this.name+\"',100000,'\"+this.password+\"');\");\r\n                // Query befehl in Klammern wird ausgeführt\r\n            statement.close();\r\n\r\n            regestriert = true;\r\n\r\n            System.out.println(\"Account erstellt !\");\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void checkData(String name, String password){\r\n        this.name = name;\r\n        this.password = password;\r\n\r\n        try {\r\n            Connection con = DriverManager.getConnection(\"jdbc:mysql://localhost:3306/playerdata\", \"root\", \"virtuspro\");\r\n            // Verbindung herstellen mit URL + Username + Passwort\r\n            System.out.println(\"Erfolgreich mit Datenbank verbunden\");\r\n\r\n            Statement statement = con.createStatement();\r\n\r\n\r\n                ResultSet rs = statement.executeQuery(\"select * from R_user\");\r\n\r\n\r\n                while(rs.next()) {\r\n                    cname = rs.getString(\"username\");\r\n                    cpassword = rs.getString(\"r_password\");\r\n                    System.out.println(cname +\" \"+ cpassword);\r\n                    if (this.name.equals(cname) && this.password.equals(cpassword)) {\r\n                        angemeldet = true;\r\n                        System.out.println(\"Anmeldung Erfolgreich!\");\r\n                        break;\r\n\r\n                    }\r\n                    System.out.println(\"============== \");\r\n                }\r\n\r\n\r\n        } catch (Exception e){\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void changeCredit(){\r\n        try {\r\n            Connection con = DriverManager.getConnection(\"jdbc:mysql://localhost:3306/playerdata\", \"root\", \"virtuspro\");\r\n            // Verbindung herstellen mit URL + Username + Passwort\r\n            System.out.println(\"Erfolgreich mit Datenbank verbunden\");\r\n\r\n            Statement statement = con.createStatement();\r\n\r\n            statement.execute(\"Update R_user set credit =\" +credit+ \"where username =\"+name);\r\n\r\n\r\n\r\n        } catch (Exception e){\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n\r\n\r\n}\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/MySql_Database.java b/src/MySql_Database.java
+--- a/src/MySql_Database.java	(revision 9a90b01b806f88b437f22f6303fbf919791d131f)
++++ b/src/MySql_Database.java	(date 1626044379353)
+@@ -14,6 +14,8 @@
+         String cpassword;
+         boolean angemeldet = false;
+         double credit;
++        String username;
++
+ 
+     public void setData(String name, String password ) throws SQLException {
+         this.name = name;
+@@ -32,7 +34,7 @@
+                     "('"+this.name+"',100000,'"+this.password+"');");
+                 // Query befehl in Klammern wird ausgeführt
+             statement.close();
+-
++            username = this.name;
+             regestriert = true;
+ 
+             System.out.println("Account erstellt !");
+@@ -63,6 +65,7 @@
+                     if (this.name.equals(cname) && this.password.equals(cpassword)) {
+                         angemeldet = true;
+                         System.out.println("Anmeldung Erfolgreich!");
++                        username = cname;
+                         break;
+ 
+                     }
+@@ -75,15 +78,18 @@
+         }
+     }
+ 
+-    public void changeCredit(){
++    public void changeCredit(int win){
+         try {
+             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/playerdata", "root", "virtuspro");
+             // Verbindung herstellen mit URL + Username + Passwort
+             System.out.println("Erfolgreich mit Datenbank verbunden");
+ 
+             Statement statement = con.createStatement();
++            ResultSet rs = statement.executeQuery("select from * R_user where username = "+username);
++            credit = rs.getInt("credit");
++            credit = credit + win;
+ 
+-            statement.execute("Update R_user set credit =" +credit+ "where username ="+name);
++            statement.execute("Update R_user set credit =" +credit+ "where username ="+username);
+ 
+ 
+ 
