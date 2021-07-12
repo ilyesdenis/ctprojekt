@@ -183,6 +183,9 @@ odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
             bets[field]=bets[field]+chips;
             stack(calledby,chipson[field],field);
             chipson[field]++;
+            //public int getGuthaben(){
+              //  return chips;
+            //}
         }else if(mouseEvent.getButton()== MouseButton.SECONDARY){
             calledby.getChildren().clear();
             bets[field]=0;

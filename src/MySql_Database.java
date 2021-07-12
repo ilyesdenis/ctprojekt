@@ -8,12 +8,16 @@ import java.sql.SQLException;
 
 public class MySql_Database  {
         String name;
-        String password;
+        private String password;
         boolean regestriert = false;
-        String cname;
-        String cpassword;
+        private String cname;
+        private String cpassword;
         boolean angemeldet = false;
-        double credit;
+        private int credit;
+        private String username;
+
+
+
 
     public void setData(String name, String password ) throws SQLException {
         this.name = name;
@@ -31,8 +35,9 @@ public class MySql_Database  {
             statement.execute("insert into R_user (username, credit, r_password) values " +
                     "('"+this.name+"',100000,'"+this.password+"');");
                 // Query befehl in Klammern wird ausgeführt
-            statement.close();
 
+            statement.execute("Update R_user set s_username = '"+this.name+"' where id =1");
+            statement.close();
             regestriert = true;
 
             System.out.println("Account erstellt !");
@@ -41,19 +46,19 @@ public class MySql_Database  {
         }
     }
 
-    public void checkData(String name, String password){
+    public void checkData(String name, String password) throws SQLException{
         this.name = name;
         this.password = password;
 
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/playerdata", "root", "virtuspro");
-            // Verbindung herstellen mit URL + Username + Passwort
+
             System.out.println("Erfolgreich mit Datenbank verbunden");
 
             Statement statement = con.createStatement();
 
 
-                ResultSet rs = statement.executeQuery("select * from R_user");
+                ResultSet rs = statement.executeQuery("select username, r_password from R_user");
 
 
                 while(rs.next()) {
@@ -63,6 +68,10 @@ public class MySql_Database  {
                     if (this.name.equals(cname) && this.password.equals(cpassword)) {
                         angemeldet = true;
                         System.out.println("Anmeldung Erfolgreich!");
+
+                        statement.execute("Update R_user set s_username = '"+this.name+"' where id = 1");
+                        statement.close();
+                        rs.close();
                         break;
 
                     }
@@ -73,17 +82,35 @@ public class MySql_Database  {
         } catch (Exception e){
             e.printStackTrace();
         }
+
     }
 
-    public void changeCredit(){
+    public void changeCredit(int win) throws SQLException{
         try {
+
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/playerdata", "root", "virtuspro");
-            // Verbindung herstellen mit URL + Username + Passwort
+
             System.out.println("Erfolgreich mit Datenbank verbunden");
 
             Statement statement = con.createStatement();
 
-            statement.execute("Update R_user set credit =" +credit+ "where username ="+name);
+
+            ResultSet rs = statement.executeQuery("select s_username from R_user where id = 1");
+
+            while (rs.next()) {
+                name = rs.getString("s_username");
+            }
+            ResultSet rst = statement.executeQuery("select credit from R_user where username = '"+name+"'");
+
+            while(rst.next()) {
+                credit = rst.getInt("credit");
+            }
+            credit = credit + win;
+
+            statement.execute("update R_user set credit ="+credit+" where username = '"+name+"'");
+            System.out.println("Ihr Guthaben beträgt nun : "+credit);
+            rst.close();
+            statement.close();
 
 
 
