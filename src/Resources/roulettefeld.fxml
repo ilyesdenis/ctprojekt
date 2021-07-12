@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
-
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.media.MediaView?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.media.MediaView?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+
 <AnchorPane fx:id="ap" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RoulettefeldController">
    <children>
       <ImageView fitHeight="244.0" fitWidth="900.0" layoutY="269.0">
@@ -22,56 +20,56 @@
          </image>
       </ImageView>
       <MediaView fx:id="mediaView" fitHeight="150.0" fitWidth="215.0" layoutX="660.0" layoutY="19.0" />
-      <AnchorPane fx:id="zero" prefHeight="142.0" layoutX="35.0" layoutY="283.0" onMouseClicked="#zero" prefWidth="52.0" />
-      <AnchorPane fx:id="three" prefHeight="44.0" layoutX="90.0" layoutY="283.0" onMouseClicked="#three" prefWidth="60.0" />
-      <AnchorPane fx:id="two" prefHeight="44.0" layoutX="93.0" layoutY="332.0" onMouseClicked="#two" prefWidth="54.0" />
-      <AnchorPane fx:id="one" prefHeight="51.0" layoutX="93.0" layoutY="378.0" onMouseClicked="#one" prefWidth="55.0" />
-      <AnchorPane fx:id="six" prefHeight="47.0" layoutX="154.0" layoutY="284.0" onMouseClicked="#six" prefWidth="55.0" />
-      <AnchorPane fx:id="five" prefHeight="44.0" layoutX="155.0" layoutY="332.0" onMouseClicked="#five" prefWidth="54.0" />
-      <AnchorPane fx:id="four" prefHeight="44.0" layoutX="155.0" layoutY="381.0" onMouseClicked="#four" prefWidth="54.0" />
-      <AnchorPane fx:id="nine" prefHeight="51.0" layoutX="214.0" layoutY="282.0" onMouseClicked="#nine" prefWidth="60.0" />
-      <AnchorPane fx:id="eight" prefHeight="51.0" layoutX="214.0" layoutY="328.0" onMouseClicked="#eight" prefWidth="60.0" />
-      <AnchorPane fx:id="seven" prefHeight="44.0" layoutX="217.0" layoutY="381.0" onMouseClicked="#seven" prefWidth="54.0" />
-      <AnchorPane fx:id="twelve" prefHeight="47.0" layoutX="279.0" layoutY="284.0" onMouseClicked="#twelve" prefWidth="55.0" />
-      <AnchorPane fx:id="eleven" prefHeight="45.0" layoutX="281.0" layoutY="332.0" onMouseClicked="#eleven" prefWidth="52.0" />
-      <AnchorPane fx:id="ten" prefHeight="47.0" layoutX="280.0" layoutY="380.0" onMouseClicked="#ten" prefWidth="53.0" />
-      <AnchorPane fx:id="firsttwelve" prefHeight="32.0" layoutX="94.0" layoutY="430.0" onMouseClicked="#firsttwelve" prefWidth="241.0" />
-      <AnchorPane fx:id="onetoeighteen" prefHeight="32.0" layoutX="95.0" layoutY="467.0" onMouseClicked="#onetoeighteen" prefWidth="118.0" />
-      <AnchorPane fx:id="even" prefHeight="32.0" layoutX="215.0" layoutY="467.0" onMouseClicked="#even" prefWidth="118.0" />
+      <AnchorPane fx:id="zero" layoutX="35.0" layoutY="283.0" onMouseClicked="#zero" prefHeight="142.0" prefWidth="52.0" />
+      <AnchorPane fx:id="three" layoutX="90.0" layoutY="283.0" onMouseClicked="#three" prefHeight="44.0" prefWidth="60.0" />
+      <AnchorPane fx:id="two" layoutX="93.0" layoutY="332.0" onMouseClicked="#two" prefHeight="44.0" prefWidth="54.0" />
+      <AnchorPane fx:id="one" layoutX="93.0" layoutY="378.0" onMouseClicked="#one" prefHeight="51.0" prefWidth="55.0" />
+      <AnchorPane fx:id="six" layoutX="154.0" layoutY="284.0" onMouseClicked="#six" prefHeight="47.0" prefWidth="55.0" />
+      <AnchorPane fx:id="five" layoutX="155.0" layoutY="332.0" onMouseClicked="#five" prefHeight="44.0" prefWidth="54.0" />
+      <AnchorPane fx:id="four" layoutX="155.0" layoutY="381.0" onMouseClicked="#four" prefHeight="44.0" prefWidth="54.0" />
+      <AnchorPane fx:id="nine" layoutX="214.0" layoutY="282.0" onMouseClicked="#nine" prefHeight="51.0" prefWidth="60.0" />
+      <AnchorPane fx:id="eight" layoutX="214.0" layoutY="328.0" onMouseClicked="#eight" prefHeight="51.0" prefWidth="60.0" />
+      <AnchorPane fx:id="seven" layoutX="217.0" layoutY="381.0" onMouseClicked="#seven" prefHeight="44.0" prefWidth="54.0" />
+      <AnchorPane fx:id="twelve" layoutX="279.0" layoutY="284.0" onMouseClicked="#twelve" prefHeight="47.0" prefWidth="55.0" />
+      <AnchorPane fx:id="eleven" layoutX="281.0" layoutY="332.0" onMouseClicked="#eleven" prefHeight="45.0" prefWidth="52.0" />
+      <AnchorPane fx:id="ten" layoutX="280.0" layoutY="380.0" onMouseClicked="#ten" prefHeight="47.0" prefWidth="53.0" />
+      <AnchorPane fx:id="firsttwelve" layoutX="94.0" layoutY="430.0" onMouseClicked="#firsttwelve" prefHeight="32.0" prefWidth="241.0" />
+      <AnchorPane fx:id="onetoeighteen" layoutX="95.0" layoutY="467.0" onMouseClicked="#onetoeighteen" prefHeight="32.0" prefWidth="118.0" />
+      <AnchorPane fx:id="even" layoutX="215.0" layoutY="467.0" onMouseClicked="#even" prefHeight="32.0" prefWidth="118.0" />
       <Button fx:id="BtSpin" layoutX="658.0" layoutY="157.0" mnemonicParsing="false" onAction="#DisplayNumber" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #d2eb34;" text="SPIN" />
-      <AnchorPane fx:id="fifteen" prefHeight="45.0" layoutX="337.0" layoutY="283.0" onMouseClicked="#fifteen" prefWidth="60.0" />
-      <AnchorPane fx:id="fourteen" prefHeight="45.0" layoutX="336.0" layoutY="331.0" onMouseClicked="#fourteen" prefWidth="60.0" />
-      <AnchorPane fx:id="thirteen" prefHeight="45.0" layoutX="340.0" layoutY="381.0" onMouseClicked="#thirteen" prefWidth="55.0" />
-      <AnchorPane fx:id="secoundtwelve" prefHeight="32.0" layoutX="339.0" layoutY="430.0" onMouseClicked="#secoundtwelve" prefWidth="241.0" />
-      <AnchorPane fx:id="thirdtwelve" prefHeight="32.0" layoutX="587.0" layoutY="430.0" onMouseClicked="#thirdtwelve" prefWidth="241.0" />
-      <AnchorPane fx:id="red" prefHeight="32.0" layoutX="339.0" layoutY="467.0" onMouseClicked="#red" prefWidth="118.0" />
-      <AnchorPane fx:id="black" prefHeight="32.0" layoutX="458.0" layoutY="467.0" onMouseClicked="#black" prefWidth="118.0" />
-      <AnchorPane fx:id="odd" prefHeight="32.0" layoutX="583.0" layoutY="467.0" onMouseClicked="#odd" prefWidth="118.0" />
-      <AnchorPane fx:id="nineteentothirtysix" prefHeight="32.0" layoutX="708.0" layoutY="467.0" onMouseClicked="#nineteentothirtysix" prefWidth="118.0" />
-      <AnchorPane fx:id="eighteen" prefHeight="45.0" layoutX="398.0" layoutY="285.0" onMouseClicked="#eighteen" prefWidth="60.0" />
-      <AnchorPane fx:id="seventeen" prefHeight="45.0" layoutX="398.0" layoutY="331.0" onMouseClicked="#seventeen" prefWidth="60.0" />
-      <AnchorPane fx:id="sixteen" prefHeight="45.0" layoutX="398.0" layoutY="381.0" onMouseClicked="#sixteen" prefWidth="60.0" />
-      <AnchorPane fx:id="twentyfour" prefHeight="45.0" layoutX="522.0" layoutY="285.0" onMouseClicked="#twentyfour" prefWidth="60.0" />
-      <AnchorPane fx:id="twentythree" prefHeight="45.0" layoutX="522.0" layoutY="332.0" onMouseClicked="#twentythree" prefWidth="60.0" />
-      <AnchorPane fx:id="twentytwo" prefHeight="45.0" layoutX="522.0" layoutY="380.0" onMouseClicked="#twentytwo" prefWidth="60.0" />
-      <AnchorPane fx:id="twentyseven" prefHeight="45.0" layoutX="582.0" layoutY="283.0" onMouseClicked="#twentyseven" prefWidth="60.0" />
-      <AnchorPane fx:id="twentysix" prefHeight="45.0" layoutX="583.0" layoutY="331.0" onMouseClicked="#twentysix" prefWidth="60.0" />
-      <AnchorPane fx:id="twentyfive" prefHeight="45.0" layoutX="583.0" layoutY="380.0" onMouseClicked="#twentyfive" prefWidth="60.0" />
-      <AnchorPane fx:id="thirty" prefHeight="45.0" layoutX="644.0" layoutY="285.0" onMouseClicked="#thirty" prefWidth="60.0" />
-      <AnchorPane fx:id="twentynine" prefHeight="45.0" layoutX="644.0" layoutY="331.0" onMouseClicked="#twentynine" prefWidth="60.0" />
-      <AnchorPane fx:id="twetnyeight" prefHeight="45.0" layoutX="644.0" layoutY="380.0" onMouseClicked="#twetnyeight" prefWidth="60.0" />
-      <AnchorPane fx:id="thirtythree" prefHeight="45.0" layoutX="705.0" layoutY="285.0" onMouseClicked="#thirtythree" prefWidth="60.0" />
-      <AnchorPane fx:id="thirtytwo" prefHeight="45.0" layoutX="705.0" layoutY="331.0" onMouseClicked="#thirtytwo" prefWidth="60.0" />
-      <AnchorPane fx:id="thirtyone" prefHeight="45.0" layoutX="707.0" layoutY="380.0" onMouseClicked="#thirtyone" prefWidth="60.0" />
-      <AnchorPane fx:id="thirtysix" prefHeight="45.0" layoutX="765.0" layoutY="285.0" onMouseClicked="#thirtysix" prefWidth="60.0" />
-      <AnchorPane fx:id="thirtyfive" prefHeight="45.0" layoutX="765.0" layoutY="331.0" onMouseClicked="#thirtyfive" prefWidth="60.0" />
-      <AnchorPane fx:id="thirtyfour" prefHeight="45.0" layoutX="765.0" layoutY="380.0" onMouseClicked="#thirtyfour" prefWidth="60.0" />
-      <AnchorPane fx:id="row3" prefHeight="45.0" layoutX="828.0" layoutY="283.0" onMouseClicked="#row3" prefWidth="60.0" />
-      <AnchorPane fx:id="row2" prefHeight="45.0" layoutX="828.0" layoutY="331.0" onMouseClicked="#row2" prefWidth="60.0" />
-      <AnchorPane fx:id="row1" prefHeight="45.0" layoutX="828.0" layoutY="380.0" onMouseClicked="#row1" prefWidth="60.0" />
-      <AnchorPane fx:id="twentyone" prefHeight="45.0" layoutX="457.0" layoutY="285.0" onMouseClicked="#twentyone" prefWidth="60.0" />
-      <AnchorPane fx:id="twenty" prefHeight="45.0" layoutX="457.0" layoutY="331.0" onMouseClicked="#twenty" prefWidth="60.0" />
-      <AnchorPane fx:id="nineteen" prefHeight="45.0" layoutX="457.0" layoutY="381.0" onMouseClicked="#nineteen" prefWidth="60.0" />
+      <AnchorPane fx:id="fifteen" layoutX="337.0" layoutY="283.0" onMouseClicked="#fifteen" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="fourteen" layoutX="336.0" layoutY="331.0" onMouseClicked="#fourteen" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="thirteen" layoutX="340.0" layoutY="381.0" onMouseClicked="#thirteen" prefHeight="45.0" prefWidth="55.0" />
+      <AnchorPane fx:id="secoundtwelve" layoutX="339.0" layoutY="430.0" onMouseClicked="#secoundtwelve" prefHeight="32.0" prefWidth="241.0" />
+      <AnchorPane fx:id="thirdtwelve" layoutX="587.0" layoutY="430.0" onMouseClicked="#thirdtwelve" prefHeight="32.0" prefWidth="241.0" />
+      <AnchorPane fx:id="red" layoutX="339.0" layoutY="467.0" onMouseClicked="#red" prefHeight="32.0" prefWidth="118.0" />
+      <AnchorPane fx:id="black" layoutX="458.0" layoutY="467.0" onMouseClicked="#black" prefHeight="32.0" prefWidth="118.0" />
+      <AnchorPane fx:id="odd" layoutX="583.0" layoutY="467.0" onMouseClicked="#odd" prefHeight="32.0" prefWidth="118.0" />
+      <AnchorPane fx:id="nineteentothirtysix" layoutX="708.0" layoutY="467.0" onMouseClicked="#nineteentothirtysix" prefHeight="32.0" prefWidth="118.0" />
+      <AnchorPane fx:id="eighteen" layoutX="398.0" layoutY="285.0" onMouseClicked="#eighteen" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="seventeen" layoutX="398.0" layoutY="331.0" onMouseClicked="#seventeen" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="sixteen" layoutX="398.0" layoutY="381.0" onMouseClicked="#sixteen" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="twentyfour" layoutX="522.0" layoutY="285.0" onMouseClicked="#twentyfour" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="twentythree" layoutX="522.0" layoutY="332.0" onMouseClicked="#twentythree" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="twentytwo" layoutX="522.0" layoutY="380.0" onMouseClicked="#twentytwo" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="twentyseven" layoutX="582.0" layoutY="283.0" onMouseClicked="#twentyseven" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="twentysix" layoutX="583.0" layoutY="331.0" onMouseClicked="#twentysix" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="twentyfive" layoutX="583.0" layoutY="380.0" onMouseClicked="#twentyfive" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="thirty" layoutX="644.0" layoutY="285.0" onMouseClicked="#thirty" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="twentynine" layoutX="644.0" layoutY="331.0" onMouseClicked="#twentynine" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="twetnyeight" layoutX="644.0" layoutY="380.0" onMouseClicked="#twetnyeight" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="thirtythree" layoutX="705.0" layoutY="285.0" onMouseClicked="#thirtythree" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="thirtytwo" layoutX="705.0" layoutY="331.0" onMouseClicked="#thirtytwo" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="thirtyone" layoutX="707.0" layoutY="380.0" onMouseClicked="#thirtyone" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="thirtysix" layoutX="765.0" layoutY="285.0" onMouseClicked="#thirtysix" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="thirtyfive" layoutX="765.0" layoutY="331.0" onMouseClicked="#thirtyfive" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="thirtyfour" layoutX="765.0" layoutY="380.0" onMouseClicked="#thirtyfour" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="row3" layoutX="828.0" layoutY="283.0" onMouseClicked="#row3" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="row2" layoutX="828.0" layoutY="331.0" onMouseClicked="#row2" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="row1" layoutX="828.0" layoutY="380.0" onMouseClicked="#row1" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="twentyone" layoutX="457.0" layoutY="285.0" onMouseClicked="#twentyone" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="twenty" layoutX="457.0" layoutY="331.0" onMouseClicked="#twenty" prefHeight="45.0" prefWidth="60.0" />
+      <AnchorPane fx:id="nineteen" layoutX="457.0" layoutY="381.0" onMouseClicked="#nineteen" prefHeight="45.0" prefWidth="60.0" />
       <Label fx:id="Lbkugel" layoutX="278.0" layoutY="187.0" prefHeight="18.0" prefWidth="195.0" />
       <Text fx:id="textKugel" layoutX="324.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="102.0" />
       <HBox layoutX="10.0" layoutY="218.0" prefHeight="51.0" prefWidth="877.0" spacing="20.0">
@@ -146,12 +144,12 @@
             <Insets />
          </opaqueInsets>
       </HBox>
-      <TextArea layoutX="17.0" layoutY="41.0" prefHeight="173.0" prefWidth="200.0" />
       <Circle fx:id="DisplayWinningNumber" fill="DODGERBLUE" layoutX="528.0" layoutY="60.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
       <Label alignment="TOP_LEFT" layoutX="382.0" layoutY="52.0" prefHeight="17.0" prefWidth="118.0" style="-fx-background-color: #2cab27;" text="   Winning Number:" textAlignment="CENTER" />
       <Label fx:id="LbWinNumCircle" layoutX="525.0" layoutY="52.0" textAlignment="CENTER" />
       <Label fx:id="LbBettingAmount" layoutX="423.0" layoutY="86.0" />
       <Button layoutX="773.0" layoutY="157.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="105.0" text="Start next round" />
       <Label fx:id="LbPayout" layoutX="409.0" layoutY="128.0" text="Label" />
+      <ListView fx:id="lw" layoutX="3.0" layoutY="5.0" prefHeight="212.0" prefWidth="184.0" />
    </children>
 </AnchorPane>
