@@ -56,7 +56,9 @@ public class RoulettefeldController implements Initializable {
     public AnchorPane zero, three, two, one, six, five, four, nine, eight, seven, twelve, eleven, firsttwelve, ten, onetoeighteen, even, twentyone, twenty, row1, row2, row3, thirtyfour, thirtyfive, thirtysix, thirtyone;
     public AnchorPane thirtytwo, thirtythree, twetnyeight, twentynine, thirty, twentyfive, twentysix, twentyseven, nineteen, twentytwo, twentythree, twentyfour, sixteen, seventeen, eighteen, nineteentothirtysix;
     public AnchorPane odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen;
-    public AnchorPane sp;
+    private AnchorPane[] fieldnames={zero, three, two, one, six, five, four, nine, eight, seven, twelve, eleven, firsttwelve, ten, onetoeighteen, even, twentyone, twenty, row1, row2, row3, thirtyfour, thirtyfive, thirtysix, thirtyone,
+ thirtytwo, thirtythree, twetnyeight, twentynine, thirty, twentyfive, twentysix, twentyseven, nineteen, twentytwo, twentythree, twentyfour, sixteen, seventeen, eighteen, nineteentothirtysix,
+odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
     int kugelpos, spin = 0 ;
 
 
@@ -178,7 +180,6 @@ public class RoulettefeldController implements Initializable {
 
     public void setbeton(int field, MouseEvent mouseEvent,AnchorPane calledby){ //sets the bet on bets and visual
         if (mouseEvent.getButton()== MouseButton.PRIMARY){
-            System.out.println("ZERO");
             bets[field]=bets[field]+chips;
             stack(calledby,chipson[field],field);
             chipson[field]++;
@@ -363,7 +364,7 @@ public class RoulettefeldController implements Initializable {
     }
 
     public void row2(MouseEvent mouseEvent) {
-        setbeton(47,mouseEvent,row3);
+        setbeton(47,mouseEvent,row2);
     }
 
     public void row3(MouseEvent mouseEvent) {
@@ -397,7 +398,64 @@ public class RoulettefeldController implements Initializable {
     private void resetbets() {
         for (int i = 0; i <50 ; i++) {
           bets[i]=0;
+        //  fieldnames[i].getChildren().clear();// visual chip reset
         }
+        //Quick and dirty reset
+        zero.getChildren().clear();
+        three.getChildren().clear();
+        two.getChildren().clear();
+        one.getChildren().clear();
+        six.getChildren().clear();
+        five.getChildren().clear();
+        four.getChildren().clear();
+        nine.getChildren().clear();
+        eight.getChildren().clear();
+        seven.getChildren().clear();
+        twelve.getChildren().clear();
+        eleven.getChildren().clear();
+        firsttwelve.getChildren().clear();
+        ten.getChildren().clear();
+        onetoeighteen.getChildren().clear();
+        even.getChildren().clear();
+        twentyone.getChildren().clear();
+        twenty.getChildren().clear();
+        row1.getChildren().clear();
+        row2.getChildren().clear();
+        row3.getChildren().clear();
+        thirtyfour.getChildren().clear();
+        thirtyfive.getChildren().clear();
+        thirtysix.getChildren().clear();
+        thirtyone.getChildren().clear();
+        thirtytwo.getChildren().clear();
+        thirtythree.getChildren().clear();
+        twetnyeight.getChildren().clear();
+        twentynine.getChildren().clear();
+        thirty.getChildren().clear();
+        twentyfive.getChildren().clear();
+        twentysix.getChildren().clear();
+        twentyseven.getChildren().clear();
+        nineteen.getChildren().clear();
+        twentytwo.getChildren().clear();
+        twentythree.getChildren().clear();
+        twentyfour.getChildren().clear();
+        sixteen.getChildren().clear();
+        seventeen.getChildren().clear();
+        eighteen.getChildren().clear();
+        nineteentothirtysix.getChildren().clear();
+        odd.getChildren().clear();
+        red.getChildren().clear();
+        thirteen.getChildren().clear();
+        black.getChildren().clear();
+        thirdtwelve.getChildren().clear();
+        secoundtwelve.getChildren().clear();
+        fourteen.getChildren().clear();
+        fifteen.getChildren().clear();
+
+
+
+
+
+
     }
 
 
