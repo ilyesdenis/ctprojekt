@@ -20,7 +20,7 @@
             <Image url="@../img/roulettefeld.png" />
          </image>
       </ImageView>
-      <MediaView fx:id="mediaView" fitHeight="150.0" fitWidth="215.0" layoutX="660.0" layoutY="19.0" />
+      <MediaView fx:id="mediaView" fitHeight="150.0" fitWidth="215.0" layoutX="659.0" layoutY="41.0" />
       <AnchorPane fx:id="zero" layoutX="35.0" layoutY="283.0" onMouseClicked="#zero" prefHeight="142.0" prefWidth="52.0" />
       <AnchorPane fx:id="three" layoutX="90.0" layoutY="283.0" onMouseClicked="#three" prefHeight="44.0" prefWidth="60.0" />
       <AnchorPane fx:id="two" layoutX="93.0" layoutY="332.0" onMouseClicked="#two" prefHeight="44.0" prefWidth="54.0" />
@@ -37,7 +37,7 @@
       <AnchorPane fx:id="firsttwelve" layoutX="94.0" layoutY="430.0" onMouseClicked="#firsttwelve" prefHeight="32.0" prefWidth="241.0" />
       <AnchorPane fx:id="onetoeighteen" layoutX="95.0" layoutY="467.0" onMouseClicked="#onetoeighteen" prefHeight="32.0" prefWidth="118.0" />
       <AnchorPane fx:id="even" layoutX="215.0" layoutY="467.0" onMouseClicked="#even" prefHeight="32.0" prefWidth="118.0" />
-      <Button fx:id="BtSpin" layoutX="658.0" layoutY="157.0" mnemonicParsing="false" onAction="#DisplayNumber" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #d2eb34;" text="SPIN" />
+      <Button fx:id="BtSpin" layoutX="657.0" layoutY="179.0" mnemonicParsing="false" onAction="#DisplayNumber" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #d2eb34;" text="SPIN" />
       <AnchorPane fx:id="fifteen" layoutX="337.0" layoutY="283.0" onMouseClicked="#fifteen" prefHeight="45.0" prefWidth="60.0" />
       <AnchorPane fx:id="fourteen" layoutX="336.0" layoutY="331.0" onMouseClicked="#fourteen" prefHeight="45.0" prefWidth="60.0" />
       <AnchorPane fx:id="thirteen" layoutX="340.0" layoutY="381.0" onMouseClicked="#thirteen" prefHeight="45.0" prefWidth="55.0" />
@@ -71,7 +71,7 @@
       <AnchorPane fx:id="twentyone" layoutX="457.0" layoutY="285.0" onMouseClicked="#twentyone" prefHeight="45.0" prefWidth="60.0" />
       <AnchorPane fx:id="twenty" layoutX="457.0" layoutY="331.0" onMouseClicked="#twenty" prefHeight="45.0" prefWidth="60.0" />
       <AnchorPane fx:id="nineteen" layoutX="457.0" layoutY="381.0" onMouseClicked="#nineteen" prefHeight="45.0" prefWidth="60.0" />
-      <Label fx:id="Lbkugel" layoutX="278.0" layoutY="187.0" prefHeight="18.0" prefWidth="195.0" />
+      <Label fx:id="Lbkugel" layoutX="324.0" layoutY="57.0" prefHeight="18.0" prefWidth="195.0" />
       <Text fx:id="textKugel" layoutX="324.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="102.0" />
       <HBox layoutX="10.0" layoutY="218.0" prefHeight="51.0" prefWidth="877.0" spacing="20.0">
          <children>
@@ -154,9 +154,12 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Label fx:id="LbBettingAmount" layoutX="423.0" layoutY="86.0" />
-      <Button fx:id="menue" layoutX="773.0" layoutY="157.0" mnemonicParsing="false" onMouseClicked="#backtomenu" prefHeight="7.0" prefWidth="105.0" text="MENU" />
-      <Label fx:id="LbPayout" layoutX="392.0" layoutY="160.0">
+      <Label fx:id="LbBettingAmount" layoutX="324.0" layoutY="185.0" prefHeight="22.0" prefWidth="326.0">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Button fx:id="menue" layoutX="772.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#backtomenu" prefHeight="7.0" prefWidth="105.0" text="MENU" />
+      <Label fx:id="LbPayout" layoutX="324.0" layoutY="160.0" prefHeight="20.0" prefWidth="195.0">
          <font>
             <Font size="14.0" />
          </font></Label>
@@ -164,6 +167,11 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="44.0" layoutY="8.0" prefHeight="58.0" prefWidth="102.0" text="Bets:">
          <font>
             <Font size="31.0" />
+         </font>
+      </Label>
+      <Label fx:id="guthaben" layoutX="753.0" layoutY="14.0" textFill="#00ff04">
+         <font>
+            <Font size="20.0" />
          </font>
       </Label>
    </children>

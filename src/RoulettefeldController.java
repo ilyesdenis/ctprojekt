@@ -31,6 +31,7 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -72,6 +73,8 @@ public class RoulettefeldController implements Initializable {
     int kugelpos, spin = 0 ;
     @FXML
     private ListView lw;
+    @FXML
+    public Label guthaben;
     private int[] bets=new int[50];
     private int[] chipson=new int[50];
     int chips=0;
@@ -92,6 +95,7 @@ public class RoulettefeldController implements Initializable {
     ImageView iv4=new ImageView(img4);
 
     HashMap<String, ImageView> ivs = new HashMap<String, ImageView>();
+    private MySql_Database sql=new MySql_Database();
 
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -133,8 +137,8 @@ public class RoulettefeldController implements Initializable {
         spin(); // display wheel video
         this.kugelpos=getspin();
         spin++;
-        System.out.println(kugelpos);
         resetbets();
+        refreshguthaben();
         System.out.println("--------------------------------------------");
     }
 
@@ -146,6 +150,7 @@ public class RoulettefeldController implements Initializable {
         media = new Media(file.toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaView.setMediaPlayer(mediaPlayer);
+        refreshguthaben();
 
         for(int i = 0; i < 50; i++){
             for (int j=0;j<50;j++) {
@@ -191,15 +196,29 @@ public class RoulettefeldController implements Initializable {
 
     public void setbeton(int field, MouseEvent mouseEvent,AnchorPane calledby){ //sets the bet on bets and visual
         if (mouseEvent.getButton()== MouseButton.PRIMARY){
-            bets[field]=bets[field]+chips;
-            stack(calledby,chipson[field],field);
-            chipson[field]++;
-            refreshlist();
+            if (sql.checkGuthaben(chips) == true) {
+                bets[field]=bets[field]+chips;
+                stack(calledby,chipson[field],field);
+                chipson[field]++;
+                refreshlist();
+                try {
+                    sql.setChips(chips);
+                    refreshguthaben();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
         }else if(mouseEvent.getButton()== MouseButton.SECONDARY){
             calledby.getChildren().clear();
+            try {
+                sql.changeCredit(bets[field]);
+            } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
             bets[field]=0;
             chipson[field]=0;
             refreshlist();
+            refreshguthaben();
         }
     }
 
@@ -650,5 +669,9 @@ public class RoulettefeldController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Menu");
+    }
+
+    public void refreshguthaben(){
+        guthaben.setText(String.valueOf(sql.getGuthaben())+"$");
     }
 }//eoc
