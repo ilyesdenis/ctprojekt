@@ -6,6 +6,8 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.skin.CellSkinBase;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -27,6 +29,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,8 +55,6 @@ public class RoulettefeldController implements Initializable {
     @FXML
     private Button BtSpin;
     @FXML
-    private Button menu;
-    @FXML
     private Button BtStartNextRound;
     @FXML
     private Label LbWinNumCircle;
@@ -62,20 +63,24 @@ public class RoulettefeldController implements Initializable {
     public AnchorPane zero, three, two, one, six, five, four, nine, eight, seven, twelve, eleven, firsttwelve, ten, onetoeighteen, even, twentyone, twenty, row1, row2, row3, thirtyfour, thirtyfive, thirtysix, thirtyone;
     public AnchorPane thirtytwo, thirtythree, twetnyeight, twentynine, thirty, twentyfive, twentysix, twentyseven, nineteen, twentytwo, twentythree, twentyfour, sixteen, seventeen, eighteen, nineteentothirtysix;
     public AnchorPane odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen;
-    private AnchorPane[] fieldnames={zero, three, two, one, six, five, four, nine, eight, seven, twelve, eleven, firsttwelve, ten, onetoeighteen, even, twentyone, twenty, row1, row2, row3, thirtyfour, thirtyfive, thirtysix, thirtyone,
- thirtytwo, thirtythree, twetnyeight, twentynine, thirty, twentyfive, twentysix, twentyseven, nineteen, twentytwo, twentythree, twentyfour, sixteen, seventeen, eighteen, nineteentothirtysix,
-odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
+    /*  bet IDs:
+     * 0-36-the numbers, 37-firsttwelve, 38-onetoeighteen, 39-even, 40-secoundtwelve,41-thirdtwelve
+     * 42-red, 43-black, 44-odd, 45-nineteentothirtysix, 47-row2, 48-row3, 49-row1
+     * */
+    private String[] fieldnames={"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+            "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "firsttwelve", "onetoeighteen", "even", "secoundtwelve", "thirdtwelve", "red", "black","odd", "nineteentothirtysix","WTF", "row2", "row3", "row1"};
     int kugelpos, spin = 0 ;
-
-
-
-
+    @FXML
+    private ListView lw;
     private int[] bets=new int[50];
     private int[] chipson=new int[50];
     int chips=0;
     private Calc calc=new Calc();
 
     private int[]  redNumbers = {1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36};
+    private int[]  blackNumbers = {2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35};
+
+    private boolean isred=false;
 //chip images -------------------------------------------------------------------------------------------------------------------------------------------------------
 
     Image img2= new Image("file:./src/img/chip2.png",50,50,true,true);
@@ -87,6 +92,7 @@ odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
     ImageView iv4=new ImageView(img4);
 
     HashMap<String, ImageView> ivs = new HashMap<String, ImageView>();
+
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -104,24 +110,23 @@ odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
         LbPayout.setText(" You Won: " + getwin());
 
         BtSpin.setStyle("-fx-background-color: #2cab27"); // if Spin button clicked change color to green
-
         // TO show which Color the winning number has NEEED TO FIX THIS(RED)---Denis
-
-       for (int i =0; i< 18;i++){
+        for (int i =0; i< 18;i++){
             if (kugelpos == redNumbers[i] ) {
                 DisplayWinningNumber.setFill(Color.RED);
-
-
             }
-            if (kugelpos== 0){
-                DisplayWinningNumber.setFill(Color.GREEN);
-            }
-            else{
+        }
+        for (int i =0; i< 18;i++){
+            if (kugelpos == blackNumbers[i] ) {
                 DisplayWinningNumber.setFill(Color.BLACK);
                 LbWinNumCircle.setTextFill(Color.WHITE); // to see label if circle is colored black
             }
-
         }
+        if (kugelpos== 0) {
+            DisplayWinningNumber.setFill(Color.GREEN);
+        }
+
+
 
 
 
@@ -143,7 +148,7 @@ odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
         mediaView.setMediaPlayer(mediaPlayer);
 
         for(int i = 0; i < 50; i++){
-            for (int j=0;j<50;j++) {//this is why
+            for (int j=0;j<50;j++) {
                 ivs.put(j+"chipone" + i, new ImageView(new Image("file:./src/img/chip1.png", 50, 50, true, true)));
                 ivs.put(j + "chiptwo" + i, new ImageView(new Image("file:./src/img/chip2.png", 50, 50, true, true)));
                 ivs.put(j + "chipfive" + i, new ImageView(new Image("file:./src/img/chip5.png", 50, 50, true, true)));
@@ -163,11 +168,11 @@ odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
     }
 
 
- public void spin(){
+    public void spin(){
         mediaPlayer.seek(Duration.millis(0)); //jump to sec 0
         mediaPlayer.play();
-       //spindisplay.setText("ASD");
-      }
+        //spindisplay.setText("ASD");
+    }
 // end of spin button ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -189,10 +194,21 @@ odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
             bets[field]=bets[field]+chips;
             stack(calledby,chipson[field],field);
             chipson[field]++;
+            refreshlist();
         }else if(mouseEvent.getButton()== MouseButton.SECONDARY){
             calledby.getChildren().clear();
             bets[field]=0;
             chipson[field]=0;
+            refreshlist();
+        }
+    }
+
+    private void refreshlist() {
+        lw.getItems().clear();
+        for (int i = 0; i <50 ; i++) {
+            if (bets[i]>0){
+                lw.getItems().add(fieldnames[i]+" --- "+bets[i]);
+            }
         }
     }
 
@@ -286,7 +302,7 @@ odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
 
     public void black(MouseEvent mouseEvent) {
         setbeton(43,mouseEvent,black);
-       // System.out.println("DEBUG BLACK");
+        // System.out.println("DEBUG BLACK");
     }
 
     public void odd(MouseEvent mouseEvent) {
@@ -403,8 +419,8 @@ odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
     public int getwin() { return calc.calculateWin(bets); } //handled in Calc
     private void resetbets() {
         for (int i = 0; i <50 ; i++) {
-          bets[i]=0;
-        //  fieldnames[i].getChildren().clear();// visual chip reset
+            bets[i]=0;
+            //  fieldnames[i].getChildren().clear();// visual chip reset
         }
         //Quick and dirty reset
         zero.getChildren().clear();
@@ -456,12 +472,7 @@ odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
         secoundtwelve.getChildren().clear();
         fourteen.getChildren().clear();
         fifteen.getChildren().clear();
-
-
-
-
-
-
+        refreshlist();
     }
 
 
@@ -470,12 +481,12 @@ odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
 
 // getting betting amount ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        @FXML
-        void bettingAmount1(MouseEvent event) {
+    @FXML
+    void bettingAmount1(MouseEvent event) {
         chips = 1;
         LbBettingAmount.setText( " Your betting amounnt is : " + chips);
 
-        }
+    }
     @FXML
     void bettingAmount2(MouseEvent event) {
         chips = 2;
@@ -580,6 +591,7 @@ odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
             case 1:
                 calledby.getChildren().add(ivs.get(fieldid+"chipone"+chipsonfield));
                 calledby.setBottomAnchor(ivs.get(fieldid+"chipone"+chipsonfield),(double)chipsonfield);
+                //lw.getItems().add(fieldnames[fieldid]+"   1");
                 break;
             case 2:
                 calledby.getChildren().add(ivs.get(fieldid+"chiptwo"+chipsonfield));
@@ -632,9 +644,9 @@ odd, red, thirteen,black, thirdtwelve, secoundtwelve, fourteen, fifteen};
         }
     }
 
-    public void backtomenu(MouseEvent mouseEvent) throws Exception {
+    public void backtomenu(MouseEvent mouseEvent) throws IOException {
         Pane root = FXMLLoader.load(getClass().getResource("/Resources/menu.fxml"));
-        Stage stage = (Stage) menu.getScene().getWindow();
+        Stage stage = (Stage) lw.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Menu");

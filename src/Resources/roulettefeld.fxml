@@ -155,7 +155,7 @@
             <Font size="18.0" />
          </font></Label>
       <Label fx:id="LbBettingAmount" layoutX="423.0" layoutY="86.0" />
-      <Button fx:id="menu" layoutX="773.0" layoutY="157.0" mnemonicParsing="false" onMouseClicked="#backtomenu" prefHeight="7.0" prefWidth="105.0" text="MENU" />
+      <Button fx:id="menue" layoutX="773.0" layoutY="157.0" mnemonicParsing="false" onMouseClicked="#backtomenu" prefHeight="7.0" prefWidth="105.0" text="MENU" />
       <Label fx:id="LbPayout" layoutX="392.0" layoutY="160.0">
          <font>
             <Font size="14.0" />
